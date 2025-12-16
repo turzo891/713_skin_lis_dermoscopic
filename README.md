@@ -24,7 +24,7 @@ This project implements and compares multiple deep learning models for skin lesi
 ## Project Structure
 
 ```
-skin-cancer-xai-project/
+adv_rec_skin
 ├── configs/              # Configuration files
 │   └── config.yaml       # Main configuration
 ├── data/                 # Datasets
@@ -56,8 +56,8 @@ skin-cancer-xai-project/
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd skin-cancer-xai-project
+git clone https://github.com/turzo891/adv_rec_skin
+cd adv_rec_skin
 ```
 
 2. Create virtual environment:
@@ -181,8 +181,8 @@ If you use this code in your research, please cite:
 ```bibtex
 @misc{skin-cancer-xai,
   title={Skin Cancer Classification with Explainable AI},
-  author={Research Team},
-  year={2024}
+  author={Shidhartha Chakrabarty Turzo},
+  year={2025}
 }
 ```
 
