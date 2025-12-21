@@ -1,6 +1,9 @@
 # Claude Code
 /.claude
 
+# Old/archived files
+/old/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -57,9 +60,9 @@ models/*.h5
 
 # Results (can be regenerated)
 results/
-logs/
+
 outputs/
-*.log
+
 
 # IDE
 .idea/

@@ -130,8 +130,10 @@ def train(
     """Full training loop."""
     os.makedirs(output_dir, exist_ok=True)
 
-    # Loss function with class weights
-    class_weights = get_class_weights([label for _, label in train_loader.dataset], 7).to(device)
+    # Loss function with class weights - auto-detect num_classes
+    train_labels = [label for _, label in train_loader.dataset]
+    num_classes = max(train_labels) + 1
+    class_weights = get_class_weights(train_labels, num_classes).to(device)
     if config.get('use_focal_loss', False):
         criterion = FocalLoss(alpha=class_weights, gamma=config.get('focal_gamma', 2.0))
     else:
@@ -232,14 +234,18 @@ def main():
         fold_loaders = create_kfold_loaders(args.data_path, args.csv_path, args.kfold, args.batch_size, args.image_size)
         for fold, (train_loader, val_loader) in enumerate(fold_loaders):
             print(f"\n{'='*50}\nTraining Fold {fold + 1}/{args.kfold}\n{'='*50}")
-            model = get_model(args.model, num_classes=7, pretrained=True).to(device)
+            # Auto-detect num_classes from data
+            num_classes = max([label for _, label in train_loader.dataset]) + 1
+            model = get_model(args.model, num_classes=num_classes, pretrained=True).to(device)
             fold_output_dir = os.path.join(output_dir, f'fold_{fold + 1}')
             train(model, train_loader, val_loader, config, device, fold_output_dir, args.use_wandb)
     else:
         train_loader, val_loader, test_loader, _ = create_data_loaders(
             args.data_path, args.csv_path, args.batch_size, args.image_size
         )
-        model = get_model(args.model, num_classes=7, pretrained=True).to(device)
+        # Auto-detect num_classes from data
+        num_classes = max([label for _, label in train_loader.dataset]) + 1
+        model = get_model(args.model, num_classes=num_classes, pretrained=True).to(device)
         print_model_summary(model, args.model)
 
         if args.resume:

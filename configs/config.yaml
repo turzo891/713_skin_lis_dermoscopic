@@ -2,10 +2,10 @@
 
 # Data Settings
 data:
-  data_dir: "data/HAM10000"
-  csv_path: "data/HAM10000/HAM10000_metadata.csv"
+  data_dir: "data/ISIC2019"
+  csv_path: "data/ISIC2019/ISIC_2019_Training_GroundTruth.csv"
   image_size: 224
-  num_workers: 4
+  num_workers: 8  # Increased for better data loading parallelism
   val_split: 0.15
   test_split: 0.15
 
@@ -19,7 +19,7 @@ model:
 # Training Settings
 training:
   epochs: 50
-  batch_size: 32
+  batch_size: 64  # Increased from 32 to utilize RTX 3090's 24GB VRAM
   lr: 0.0001
   weight_decay: 0.01
   use_amp: true  # Automatic Mixed Precision

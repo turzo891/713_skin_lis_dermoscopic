@@ -56,7 +56,8 @@ def get_train_transforms(image_size: int = 224) -> A.Compose:
     return A.Compose([
         A.Resize(image_size, image_size),
         A.RandomRotate90(p=0.5),
-        A.Flip(p=0.5),
+        A.HorizontalFlip(p=0.5),
+        A.VerticalFlip(p=0.5),
         A.Transpose(p=0.5),
         A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.15, rotate_limit=45, p=0.5),
         A.OneOf([
@@ -80,6 +81,54 @@ def get_val_transforms(image_size: int = 224) -> A.Compose:
         A.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
         ToTensorV2()
     ])
+
+
+def load_isic2019_data(
+    data_dir: str,
+    csv_path: str
+) -> Tuple[List[str], List[int], Dict[str, int]]:
+    """Load ISIC2019 dataset metadata."""
+    # ISIC2019 has 8 classes (excluding UNK)
+    label_classes = ['MEL', 'NV', 'BCC', 'AK', 'BKL', 'DF', 'VASC', 'SCC']
+    label_encoder = {cls: idx for idx, cls in enumerate(label_classes)}
+
+    df = pd.read_csv(csv_path)
+    image_paths = []
+    labels = []
+
+    for _, row in df.iterrows():
+        image_name = row['image']
+
+        # Find which class has value 1.0
+        label_idx = None
+        for cls in label_classes:
+            if row[cls] == 1.0:
+                label_idx = label_encoder[cls]
+                break
+
+        # Skip if UNK or no label found
+        if label_idx is None:
+            continue
+
+        # Look for image file
+        possible_paths = [
+            os.path.join(data_dir, f"{image_name}.jpg"),
+            os.path.join(data_dir, 'ISIC_2019_Training_Input', f"{image_name}.jpg"),
+            os.path.join(data_dir, 'ISIC_2019_Training_Input', 'ISIC_2019_Training_Input', f"{image_name}.jpg"),
+        ]
+
+        for path in possible_paths:
+            if os.path.exists(path):
+                image_paths.append(path)
+                labels.append(label_idx)
+                break
+
+    # Convert to match HAM10000 naming for compatibility
+    label_encoder_compat = {
+        'mel': 0, 'nv': 1, 'bcc': 2, 'akiec': 3, 'bkl': 4, 'df': 5, 'vasc': 6, 'scc': 7
+    }
+
+    return image_paths, labels, label_encoder_compat
 
 
 def load_ham10000_data(
@@ -123,15 +172,17 @@ def load_ham10000_data(
     return image_paths, labels, label_encoder
 
 
-def get_class_weights(labels: List[int], num_classes: int = 7) -> torch.Tensor:
+def get_class_weights(labels: List[int], num_classes: Optional[int] = None) -> torch.Tensor:
     """Calculate class weights for handling imbalanced data."""
+    if num_classes is None:
+        num_classes = max(labels) + 1
     class_counts = np.bincount(labels, minlength=num_classes)
     total_samples = len(labels)
     class_weights = total_samples / (num_classes * class_counts + 1e-6)
     return torch.FloatTensor(class_weights)
 
 
-def get_sample_weights(labels: List[int], num_classes: int = 7) -> List[float]:
+def get_sample_weights(labels: List[int], num_classes: Optional[int] = None) -> List[float]:
     """Calculate sample weights for WeightedRandomSampler."""
     class_weights = get_class_weights(labels, num_classes)
     return [class_weights[label].item() for label in labels]
@@ -149,7 +200,17 @@ def create_data_loaders(
     seed: int = 42
 ) -> Tuple[DataLoader, DataLoader, DataLoader, Dict[str, int]]:
     """Create train, validation, and test data loaders."""
-    image_paths, labels, label_encoder = load_ham10000_data(data_dir, csv_path)
+    # Auto-detect dataset format based on CSV columns
+    if csv_path and os.path.exists(csv_path):
+        df = pd.read_csv(csv_path, nrows=1)
+        if 'image' in df.columns and 'MEL' in df.columns:
+            # ISIC2019 format
+            image_paths, labels, label_encoder = load_isic2019_data(data_dir, csv_path)
+        else:
+            # HAM10000 format
+            image_paths, labels, label_encoder = load_ham10000_data(data_dir, csv_path)
+    else:
+        image_paths, labels, label_encoder = load_ham10000_data(data_dir, csv_path)
 
     train_val_paths, test_paths, train_val_labels, test_labels = train_test_split(
         image_paths, labels, test_size=test_split, stratify=labels, random_state=seed
@@ -197,7 +258,17 @@ def create_kfold_loaders(
     seed: int = 42
 ) -> List[Tuple[DataLoader, DataLoader]]:
     """Create k-fold cross-validation data loaders."""
-    image_paths, labels, _ = load_ham10000_data(data_dir, csv_path)
+    # Auto-detect dataset format based on CSV columns
+    if csv_path and os.path.exists(csv_path):
+        df = pd.read_csv(csv_path, nrows=1)
+        if 'image' in df.columns and 'MEL' in df.columns:
+            # ISIC2019 format
+            image_paths, labels, _ = load_isic2019_data(data_dir, csv_path)
+        else:
+            # HAM10000 format
+            image_paths, labels, _ = load_ham10000_data(data_dir, csv_path)
+    else:
+        image_paths, labels, _ = load_ham10000_data(data_dir, csv_path)
     image_paths = np.array(image_paths)
     labels = np.array(labels)
 
