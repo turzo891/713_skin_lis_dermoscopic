@@ -3,6 +3,7 @@
 
 # Old/archived files
 /old/
+/docs
 
 # Python
 __pycache__/

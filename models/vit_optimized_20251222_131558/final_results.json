@@ -1,0 +1,14 @@
+{
+  "model": "vit",
+  "best_val_acc": 88.36842105263158,
+  "best_epoch": 47,
+  "total_time_minutes": 45.89897874593735,
+  "configuration": {
+    "batch_size": 64,
+    "effective_batch_size": 128,
+    "num_workers": 8,
+    "use_amp": true,
+    "prefetch_factor": 5,
+    "accumulation_steps": 2
+  }
+}

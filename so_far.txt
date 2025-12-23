@@ -256,16 +256,16 @@ Complete Workflow Example
 
   # Step 3: Start training (Terminal 2)
 python3 scripts/training/train_optimized.py \
-   --model DenseNet201 \
+   --model efficientnet \
    --epochs 50 \
    --batch_size 64 \
    --use_amp \
    --num_workers 8 \
-   --prefetch_factor 5 \
+   --prefetch_factor 6 \
    --accumulation_steps 2
 
 
-
+'resnet50', 'efficientnet', 'densenet', 'vit', 'swin
   ResNet50
   EfficientNet
   DenseNet201

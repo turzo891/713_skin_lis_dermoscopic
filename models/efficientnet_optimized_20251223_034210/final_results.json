@@ -1,0 +1,14 @@
+{
+  "model": "efficientnet",
+  "best_val_acc": 82.39473684210526,
+  "best_epoch": 46,
+  "total_time_minutes": 38.84361693461736,
+  "configuration": {
+    "batch_size": 64,
+    "effective_batch_size": 128,
+    "num_workers": 8,
+    "use_amp": true,
+    "prefetch_factor": 6,
+    "accumulation_steps": 2
+  }
+}
