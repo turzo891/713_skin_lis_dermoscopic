@@ -98,16 +98,16 @@
 ### Project Organization
 ```
 adv_pat/
-├── src/              # Core library code - ORGANIZED
-├── scripts/          # Executable scripts - ORGANIZED
-│   ├── training/
-│   ├── data/
-│   ├── testing/
-│   └── monitoring/
-├── data/             # Datasets - PRESENT
-├── models/           # Saved models - PRESENT
-├── configs/          # Configuration files - PRESENT
-└── results/          # Output results - PRESENT
+ src/              # Core library code - ORGANIZED
+ scripts/          # Executable scripts - ORGANIZED
+    training/
+    data/
+    testing/
+    monitoring/
+ data/             # Datasets - PRESENT
+ models/           # Saved models - PRESENT
+ configs/          # Configuration files - PRESENT
+ results/          # Output results - PRESENT
 ```
 
 **Status:** PASSED

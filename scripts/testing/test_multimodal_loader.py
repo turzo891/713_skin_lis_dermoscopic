@@ -52,5 +52,5 @@ for images, metadata, labels in train_loader:
     break
 
 print("\n" + "="*80)
-print("✓ Multi-Modal Data Loader Test PASSED!")
+print(" Multi-Modal Data Loader Test PASSED!")
 print("="*80)

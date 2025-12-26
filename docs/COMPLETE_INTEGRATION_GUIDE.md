@@ -7,38 +7,38 @@
 ## Overview: Unified Architecture
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│              COMPLETE INTEGRATED SYSTEM                               │
-├──────────────────────────────────────────────────────────────────────┤
-│                                                                       │
-│  LAYER 1: DATA QUALITY (Tidy Data + OpenRefine)                     │
-│  ┌──────────────────────────────────────────────────┐               │
-│  │  Raw Downloads → OpenRefine → Tidy CSVs          │               │
-│  │  - Deduplication                                  │               │
-│  │  - Class label standardization                    │               │
-│  │  - Stratified splits                              │               │
-│  │  - Single source of truth (master_metadata.csv)  │               │
-│  └─────────────────┬────────────────────────────────┘               │
-│                    │                                                  │
-│                    ▼                                                  │
-│  LAYER 2: TRAINING STRATEGY (Unified Curriculum Learning)           │
-│  ┌──────────────────────────────────────────────────┐               │
-│  │  TidySkinDataset → UnifiedCurriculumTrainer      │               │
-│  │  - Loads from tidy CSVs                          │               │
-│  │  - Adaptive class weights (epoch-based)          │               │
-│  │  - Per-sample uncertainty weighting              │               │
-│  │  - Confusion-aware focus                         │               │
-│  └─────────────────┬────────────────────────────────┘               │
-│                    │                                                  │
-│                    ▼                                                  │
-│  LAYER 3: PRODUCTION MODEL                                          │
-│  ┌──────────────────────────────────────────────────┐               │
-│  │  Trained EfficientNet-B4                         │               │
-│  │  - Balanced accuracy: 85-90%                     │               │
-│  │  - All classes learned properly                  │               │
-│  └──────────────────────────────────────────────────┘               │
-│                                                                       │
-└──────────────────────────────────────────────────────────────────────┘
+
+              COMPLETE INTEGRATED SYSTEM                               
+
+                                                                       
+  LAYER 1: DATA QUALITY (Tidy Data + OpenRefine)                     
+                 
+    Raw Downloads → OpenRefine → Tidy CSVs                         
+    - Deduplication                                                 
+    - Class label standardization                                   
+    - Stratified splits                                             
+    - Single source of truth (master_metadata.csv)                 
+                 
+                                                                      
+                                                                      
+  LAYER 2: TRAINING STRATEGY (Unified Curriculum Learning)           
+                 
+    TidySkinDataset → UnifiedCurriculumTrainer                     
+    - Loads from tidy CSVs                                         
+    - Adaptive class weights (epoch-based)                         
+    - Per-sample uncertainty weighting                             
+    - Confusion-aware focus                                        
+                 
+                                                                      
+                                                                      
+  LAYER 3: PRODUCTION MODEL                                          
+                 
+    Trained EfficientNet-B4                                        
+    - Balanced accuracy: 85-90%                                    
+    - All classes learned properly                                 
+                 
+                                                                       
+
 ```
 
 ---
@@ -49,7 +49,7 @@
 
 **Disconnected Techniques (DON'T DO THIS):**
 ```python
-# ❌ BAD: Multiple disconnected tricks
+#  BAD: Multiple disconnected tricks
 loss = focal_loss(...)           # Trick #1
 + class_weights * ce_loss(...)   # Trick #2
 + mixup_loss(...)                # Trick #3
@@ -65,7 +65,7 @@ loss = focal_loss(...)           # Trick #1
 
 **Our Integrated Approach:**
 ```python
-# ✓ GOOD: Single coherent strategy
+#  GOOD: Single coherent strategy
 
 # Layer 1: Tidy Data ensures quality
 dataset = TidySkinDataset(tidy_dir='data/tidy')  # Clean, structured data
@@ -118,18 +118,18 @@ def run_phase(phase_name: str, script: str, description: str):
     result = subprocess.run(['python', script], capture_output=True, text=True)
 
     if result.returncode != 0:
-        print(f"❌ FAILED: {phase_name}")
+        print(f" FAILED: {phase_name}")
         print(result.stderr)
         sys.exit(1)
     else:
         print(result.stdout)
-        print(f"✓ COMPLETED: {phase_name}")
+        print(f" COMPLETED: {phase_name}")
 
 
 def main():
-    print("╔" + "="*78 + "╗")
-    print("║" + " "*20 + "COMPLETE DATA PIPELINE" + " "*36 + "║")
-    print("╚" + "="*78 + "╝")
+    print("" + "="*78 + "")
+    print("" + " "*20 + "COMPLETE DATA PIPELINE" + " "*36 + "")
+    print("" + "="*78 + "")
 
     # Phase 0: Verify raw data exists
     run_phase(
@@ -150,7 +150,7 @@ def main():
     print("PHASE 2: OpenRefine Cleaning (MANUAL)")
     print("="*80)
     print("""
-🛠️  MANUAL STEP REQUIRED:
+  MANUAL STEP REQUIRED:
 
 1. Open OpenRefine (http://localhost:3333)
 2. Import: data/openrefine/combined_raw_metadata.csv
@@ -164,7 +164,7 @@ Press ENTER when cleaning is complete...
 
     # Verify OpenRefine output exists
     if not Path('data/openrefine/cleaned_metadata.csv').exists():
-        print("❌ ERROR: cleaned_metadata.csv not found")
+        print(" ERROR: cleaned_metadata.csv not found")
         print("Please complete OpenRefine cleaning first")
         sys.exit(1)
 
@@ -189,18 +189,18 @@ Press ENTER when cleaning is complete...
         "Create comprehensive data quality and balance analysis"
     )
 
-    print("\n" + "╔" + "="*78 + "╗")
-    print("║" + " "*15 + "✓ DATA PIPELINE COMPLETE" + " "*38 + "║")
-    print("╚" + "="*78 + "╝")
+    print("\n" + "" + "="*78 + "")
+    print("" + " "*15 + " DATA PIPELINE COMPLETE" + " "*38 + "")
+    print("" + "="*78 + "")
 
-    print("\n📁 Output files created:")
+    print("\n Output files created:")
     print("  - data/tidy/master_metadata.csv (single source of truth)")
     print("  - data/tidy/splits.csv (stratified 80-20 + 5-fold CV)")
     print("  - data/tidy/class_weights.csv (initial weights)")
     print("  - data/tidy/schema.json (structure definition)")
     print("  - data/reports/data_quality_report.md")
 
-    print("\n🚀 Next step: Training")
+    print("\n Next step: Training")
     print("  Run: python scripts/training/train.py")
 
 
@@ -253,7 +253,7 @@ def create_dataloaders(config: dict, fold: int = 0):
     - Provides class_counts to curriculum trainer
     - Uses stratified splits from splits.csv
     """
-    print("\n📂 Loading data from tidy format...")
+    print("\n Loading data from tidy format...")
 
     # Training dataset
     train_dataset = TidySkinDataset(
@@ -273,12 +273,12 @@ def create_dataloaders(config: dict, fold: int = 0):
         transform=get_val_transforms(config['data']['image_size'])
     )
 
-    print(f"  ✓ Train samples: {len(train_dataset)}")
-    print(f"  ✓ Val samples: {len(val_dataset)}")
+    print(f"   Train samples: {len(train_dataset)}")
+    print(f"   Val samples: {len(val_dataset)}")
 
     # Get class counts (needed for curriculum)
     class_counts = train_dataset.get_class_counts()
-    print(f"  ✓ Class distribution:")
+    print(f"   Class distribution:")
     class_names = ['MEL', 'NV', 'BCC', 'BKL', 'AK', 'SCC', 'VASC', 'DF']
     for name, count in zip(class_names, class_counts):
         print(f"      {name}: {int(count)}")
@@ -306,14 +306,14 @@ def create_dataloaders(config: dict, fold: int = 0):
 
 
 def main():
-    print("╔" + "="*78 + "╗")
-    print("║" + " "*10 + "UNIFIED CURRICULUM-BASED TRAINING (TIDY DATA)" + " "*22 + "║")
-    print("╚" + "="*78 + "╝")
+    print("" + "="*78 + "")
+    print("" + " "*10 + "UNIFIED CURRICULUM-BASED TRAINING (TIDY DATA)" + " "*22 + "")
+    print("" + "="*78 + "")
 
     # Load configuration
     config = load_config()
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    print(f"\n🖥️  Device: {device}")
+    print(f"\n  Device: {device}")
 
     # Initialize experiment logger (tidy format)
     logger = TidyExperimentLogger(config['logging']['experiment_dir'])
@@ -325,15 +325,15 @@ def main():
     class_counts = class_counts.to(device)
 
     # Initialize model
-    print("\n🤖 Initializing model...")
+    print("\n Initializing model...")
     model = SkinClassifier(
         backbone=config['model']['backbone'],
         num_classes=config['model']['num_classes'],
         pretrained=config['model']['pretrained'],
         dropout=config['model']['dropout']
     ).to(device)
-    print(f"  ✓ Model: {config['model']['backbone']}")
-    print(f"  ✓ Parameters: {sum(p.numel() for p in model.parameters()):,}")
+    print(f"   Model: {config['model']['backbone']}")
+    print(f"   Parameters: {sum(p.numel() for p in model.parameters()):,}")
 
     # Optimizer
     optimizer = torch.optim.AdamW(
@@ -350,16 +350,16 @@ def main():
 
     # Initialize Unified Curriculum Trainer
     # This is the core component that handles all class imbalance
-    print("\n🎓 Initializing Unified Curriculum Trainer...")
+    print("\n Initializing Unified Curriculum Trainer...")
     trainer = UnifiedCurriculumTrainer(
         model=model,
         num_classes=config['model']['num_classes'],
         total_epochs=config['training']['epochs'],
         device=device
     )
-    print("  ✓ Adaptive weights enabled")
-    print("  ✓ Per-sample uncertainty weighting enabled")
-    print("  ✓ Confusion tracking enabled")
+    print("   Adaptive weights enabled")
+    print("   Per-sample uncertainty weighting enabled")
+    print("   Confusion tracking enabled")
 
     # Training loop
     print("\n" + "="*80)
@@ -369,9 +369,9 @@ def main():
     best_balanced_acc = 0.0
 
     for epoch in range(config['training']['epochs']):
-        print(f"\n{'─'*80}")
+        print(f"\n{''*80}")
         print(f"Epoch {epoch+1}/{config['training']['epochs']}")
-        print(f"{'─'*80}")
+        print(f"{''*80}")
 
         # === TRAINING ===
         model.train()
@@ -426,7 +426,7 @@ def main():
             )
 
         # === SUMMARY ===
-        print(f"\n📊 Epoch {epoch+1} Summary:")
+        print(f"\n Epoch {epoch+1} Summary:")
         print(f"  Train Loss:      {avg_loss:.4f}")
         print(f"  Train Acc:       {avg_acc:.4f}")
         print(f"  Val Balanced Acc: {val_metrics['mean_accuracy']:.4f}")
@@ -434,7 +434,7 @@ def main():
         print(f"\n  Per-Class Accuracy:")
         for name, acc in zip(class_names, val_metrics['per_class_accuracy']):
             bar_length = int(acc * 40)
-            bar = '█' * bar_length + '░' * (40 - bar_length)
+            bar = '' * bar_length + '' * (40 - bar_length)
             print(f"    {name:6s} [{bar}] {acc:.4f}")
 
         print(f"\n  Current Class Weights (adaptive):")
@@ -444,7 +444,7 @@ def main():
         # Show confused pairs
         confused = trainer.get_confused_pairs(top_k=3)
         if confused:
-            print(f"\n  🔀 Top Confused Pairs:")
+            print(f"\n   Top Confused Pairs:")
             for pair in confused:
                 true_class = class_names[pair['true']]
                 pred_class = class_names[pair['predicted']]
@@ -463,24 +463,24 @@ def main():
                 'config': config
             }, save_path)
 
-            print(f"\n  ✅ NEW BEST MODEL SAVED (Balanced Acc: {best_balanced_acc:.4f})")
+            print(f"\n   NEW BEST MODEL SAVED (Balanced Acc: {best_balanced_acc:.4f})")
 
         scheduler.step()
 
     # === TRAINING COMPLETE ===
     logger.log_run_complete({'best_balanced_accuracy': best_balanced_acc})
 
-    print("\n" + "╔" + "="*78 + "╗")
-    print("║" + " "*20 + "✓ TRAINING COMPLETE" + " "*38 + "║")
-    print("╚" + "="*78 + "╝")
+    print("\n" + "" + "="*78 + "")
+    print("" + " "*20 + " TRAINING COMPLETE" + " "*38 + "")
+    print("" + "="*78 + "")
 
-    print(f"\n📊 Final Results:")
+    print(f"\n Final Results:")
     print(f"  Best Balanced Accuracy: {best_balanced_acc:.4f}")
-    print(f"\n💾 Model saved to: {config['logging']['save_dir']}/best_model.pth")
-    print(f"📁 Logs saved to: {config['logging']['experiment_dir']}/")
+    print(f"\n Model saved to: {config['logging']['save_dir']}/best_model.pth")
+    print(f" Logs saved to: {config['logging']['experiment_dir']}/")
 
     # Analyze weight evolution
-    print(f"\n📈 Analyzing curriculum evolution...")
+    print(f"\n Analyzing curriculum evolution...")
     analyze_weight_evolution(trainer.weight_history)
 
 
@@ -508,7 +508,7 @@ def analyze_weight_evolution(weight_history: list):
 
     save_path = 'experiments/weight_evolution.png'
     plt.savefig(save_path, dpi=150)
-    print(f"  ✓ Weight evolution plot saved to: {save_path}")
+    print(f"   Weight evolution plot saved to: {save_path}")
 
 
 if __name__ == '__main__':
@@ -559,60 +559,60 @@ logging:
 
 ```
 project/
-├── config/
-│   └── config.yaml                      # Single config file
-│
-├── data/
-│   ├── raw/                             # Raw downloads
-│   │   ├── ISIC2019/
-│   │   └── HAM10000/
-│   │
-│   ├── openrefine/                      # OpenRefine intermediate
-│   │   ├── combined_raw_metadata.csv
-│   │   ├── cleaned_metadata.csv
-│   │   └── cleaning_project.tar.gz
-│   │
-│   └── tidy/                            # ★ TIDY FORMAT (Single Source of Truth)
-│       ├── master_metadata.csv          # All image metadata
-│       ├── splits.csv                   # Train/val/test assignments
-│       ├── class_weights.csv            # Initial weights
-│       └── schema.json                  # Structure definition
-│
-├── src/
-│   ├── data/
-│   │   ├── tidy_dataset.py             # ★ TidySkinDataset (reads tidy CSVs)
-│   │   └── transforms.py
-│   │
-│   ├── models/
-│   │   └── model.py                     # EfficientNet-B4
-│   │
-│   ├── training/
-│   │   └── curriculum_trainer.py        # ★ UnifiedCurriculumTrainer
-│   │
-│   └── tracking/
-│       └── experiment_logger.py         # ★ Tidy experiment logs
-│
-├── scripts/
-│   ├── data/
-│   │   ├── 00_full_pipeline.py         # ★ Complete data pipeline orchestrator
-│   │   ├── 01_prepare_for_openrefine.py
-│   │   └── 02_create_tidy_dataset.py
-│   │
-│   └── training/
-│       └── train.py                     # ★ Main training script
-│
-├── experiments/                         # Tidy experiment logs
-│   ├── runs.csv
-│   ├── epochs.csv
-│   └── class_metrics.csv
-│
-├── models/
-│   └── best_model.pth
-│
-└── docs/
-    ├── DATA_PIPELINE_COMPLETE_GUIDE.md
-    ├── OPENREFINE_CLEANING_PROTOCOL.md
-    └── COMPLETE_INTEGRATION_GUIDE.md (this file)
+ config/
+    config.yaml                      # Single config file
+
+ data/
+    raw/                             # Raw downloads
+       ISIC2019/
+       HAM10000/
+   
+    openrefine/                      # OpenRefine intermediate
+       combined_raw_metadata.csv
+       cleaned_metadata.csv
+       cleaning_project.tar.gz
+   
+    tidy/                            #  TIDY FORMAT (Single Source of Truth)
+        master_metadata.csv          # All image metadata
+        splits.csv                   # Train/val/test assignments
+        class_weights.csv            # Initial weights
+        schema.json                  # Structure definition
+
+ src/
+    data/
+       tidy_dataset.py             #  TidySkinDataset (reads tidy CSVs)
+       transforms.py
+   
+    models/
+       model.py                     # EfficientNet-B4
+   
+    training/
+       curriculum_trainer.py        #  UnifiedCurriculumTrainer
+   
+    tracking/
+        experiment_logger.py         #  Tidy experiment logs
+
+ scripts/
+    data/
+       00_full_pipeline.py         #  Complete data pipeline orchestrator
+       01_prepare_for_openrefine.py
+       02_create_tidy_dataset.py
+   
+    training/
+        train.py                     #  Main training script
+
+ experiments/                         # Tidy experiment logs
+    runs.csv
+    epochs.csv
+    class_metrics.csv
+
+ models/
+    best_model.pth
+
+ docs/
+     DATA_PIPELINE_COMPLETE_GUIDE.md
+     OPENREFINE_CLEANING_PROTOCOL.md
+     COMPLETE_INTEGRATION_GUIDE.md (this file)
 ```
 
 ---
@@ -643,10 +643,10 @@ python scripts/data/03_validate_tidy.py
 
 **Output:**
 ```
-✓ data/tidy/master_metadata.csv (33,846 images)
-✓ data/tidy/splits.csv (stratified 80-20 + 5-fold CV)
-✓ data/tidy/class_weights.csv (8 classes)
-✓ data/tidy/schema.json
+ data/tidy/master_metadata.csv (33,846 images)
+ data/tidy/splits.csv (stratified 80-20 + 5-fold CV)
+ data/tidy/class_weights.csv (8 classes)
+ data/tidy/schema.json
 ```
 
 ### Week 2: Training
@@ -663,10 +663,10 @@ python scripts/training/train.py
 
 **Output:**
 ```
-✓ models/best_model.pth (balanced_acc: 85-90%)
-✓ experiments/runs.csv
-✓ experiments/epochs.csv
-✓ experiments/class_metrics.csv
+ models/best_model.pth (balanced_acc: 85-90%)
+ experiments/runs.csv
+ experiments/epochs.csv
+ experiments/class_metrics.csv
 ```
 
 ### Week 3: Evaluation & Analysis
@@ -761,20 +761,20 @@ Everything else adapts automatically.
 ## Deliverables for Thesis
 
 ### 1. Data Pipeline Documentation
-✓ Complete reproducible pipeline from raw to tidy
-✓ OpenRefine cleaning protocol
-✓ Tidy data schema and validation
+ Complete reproducible pipeline from raw to tidy
+ OpenRefine cleaning protocol
+ Tidy data schema and validation
 
 ### 2. Training Methodology
-✓ Unified curriculum learning approach
-✓ Adaptive weight evolution plots
-✓ Per-class performance tracking
+ Unified curriculum learning approach
+ Adaptive weight evolution plots
+ Per-class performance tracking
 
 ### 3. Results
-✓ Balanced accuracy (primary metric)
-✓ Per-class metrics (critical for medical AI)
-✓ Confusion matrices
-✓ Weight evolution analysis
+ Balanced accuracy (primary metric)
+ Per-class metrics (critical for medical AI)
+ Confusion matrices
+ Weight evolution analysis
 
 ---
 

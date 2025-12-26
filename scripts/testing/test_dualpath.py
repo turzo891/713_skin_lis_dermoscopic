@@ -17,7 +17,7 @@ def test_dualpath_model():
     # Create model
     print("\n1. Creating model...")
     model = get_model('efficientnet_dualpath', num_classes=8, pretrained=False)
-    print("✓ Model created successfully")
+    print(" Model created successfully")
 
     # Count parameters
     total, trainable = count_parameters(model)
@@ -37,7 +37,7 @@ def test_dualpath_model():
     print(f"   Input shape: {dummy_input.shape}")
     print(f"   Output shape: {output.shape}")
     assert output.shape == (batch_size, 8), f"Expected shape (4, 8), got {output.shape}"
-    print("✓ Forward pass successful")
+    print(" Forward pass successful")
 
     # Test feature extraction
     print("\n4. Testing feature extraction...")
@@ -46,7 +46,7 @@ def test_dualpath_model():
     print(f"   Feature shape: {features.shape}")
     print(f"   Expected: GAP (1792) + GMP (1792) = 3584 features")
     assert features.shape == (batch_size, 3584), f"Expected (4, 3584), got {features.shape}"
-    print("✓ Feature extraction successful")
+    print(" Feature extraction successful")
 
     # Test architecture components
     print("\n5. Architecture Components:")
@@ -56,7 +56,7 @@ def test_dualpath_model():
     print(f"   Classifier: {len(model.classifier)} layers")
 
     print("\n" + "="*80)
-    print("✓ All tests passed! Model is ready to use.")
+    print(" All tests passed! Model is ready to use.")
     print("="*80)
 
     # Print comparison
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     try:
         test_dualpath_model()
     except Exception as e:
-        print(f"\n✗ Test failed with error: {e}")
+        print(f"\n Test failed with error: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

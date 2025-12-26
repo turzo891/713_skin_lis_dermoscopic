@@ -1,45 +1,45 @@
 # Quick Validation Strategy Summary
 
-## 📊 Current Status vs. Robust Strategy
+##  Current Status vs. Robust Strategy
 
-### ❌ What Was Done (Not Robust)
+###  What Was Done (Not Robust)
 
 ```
 Dataset: ISIC2019 only
 Split: 70% train / 15% val / 15% test (all from same source)
 
 Results:
-✓ Swin Transformer: 91.05% accuracy
-✓ ViT: 88.37% accuracy
-✓ DenseNet: 87.18% accuracy
-✓ ResNet50: 86.61% accuracy
-✓ EfficientNet: 81.61% accuracy
+ Swin Transformer: 91.05% accuracy
+ ViT: 88.37% accuracy
+ DenseNet: 87.18% accuracy
+ ResNet50: 86.61% accuracy
+ EfficientNet: 81.61% accuracy
 
 Problem: No external validation - cannot prove generalization!
 ```
 
-### ✅ What Should Be Done (Robust & Publication-Ready)
+###  What Should Be Done (Robust & Publication-Ready)
 
 ```
 TIER 1: Internal Validation
-├── Dataset: ISIC2019
-├── Method: 10-Fold Stratified Cross-Validation
-└── Metric: Mean ± Std (e.g., 91.2% ± 2.3%)
+ Dataset: ISIC2019
+ Method: 10-Fold Stratified Cross-Validation
+ Metric: Mean ± Std (e.g., 91.2% ± 2.3%)
 
 TIER 2: External Validation
-├── Test Dataset 1: HAM10000 (different source)
-├── Test Dataset 2: ISIC2020 (different year)
-└── Purpose: Prove model generalizes to unseen data
+ Test Dataset 1: HAM10000 (different source)
+ Test Dataset 2: ISIC2020 (different year)
+ Purpose: Prove model generalizes to unseen data
 
 TIER 3: Cross-Dataset Training
-├── Train on ISIC2019 → Test on HAM10000
-├── Train on HAM10000 → Test on ISIC2019
-└── Purpose: Maximum robustness
+ Train on ISIC2019 → Test on HAM10000
+ Train on HAM10000 → Test on ISIC2019
+ Purpose: Maximum robustness
 ```
 
 ---
 
-## 🚀 Quick Implementation Plan
+##  Quick Implementation Plan
 
 ### Phase 1: 10-Fold Cross-Validation (1 week)
 **Goal:** Replace single 70/15/15 split with proper cross-validation
@@ -95,32 +95,32 @@ Experiment 3: Combined → ISIC2020
 
 ---
 
-## 📝 Implementation Priority
+##  Implementation Priority
 
 ### Option A: Minimal (Week 1 Only)
-- ✅ 10-Fold CV on ISIC2019
-- ✅ External test on HAM10000
-- ✅ Sufficient for most publications
+-  10-Fold CV on ISIC2019
+-  External test on HAM10000
+-  Sufficient for most publications
 
 ### Option B: Recommended (Week 1 + Week 2)
-- ✅ 10-Fold CV on ISIC2019
-- ✅ External test on HAM10000
-- ✅ Cross-dataset: ISIC2019 → HAM10000
-- ✅ Statistical significance testing
-- ✅ Good for top-tier journals
+-  10-Fold CV on ISIC2019
+-  External test on HAM10000
+-  Cross-dataset: ISIC2019 → HAM10000
+-  Statistical significance testing
+-  Good for top-tier journals
 
 ### Option C: Comprehensive (All 3 Weeks)
-- ✅ Everything in Option B
-- ✅ Cross-dataset: HAM10000 → ISIC2019
-- ✅ Combined training on ISIC2019+HAM10000
-- ✅ Download and test on ISIC2020
-- ✅ Subgroup analysis
-- ✅ Calibration analysis
-- ✅ Best for flagship medical AI papers
+-  Everything in Option B
+-  Cross-dataset: HAM10000 → ISIC2019
+-  Combined training on ISIC2019+HAM10000
+-  Download and test on ISIC2020
+-  Subgroup analysis
+-  Calibration analysis
+-  Best for flagship medical AI papers
 
 ---
 
-## 🎯 Expected Results Table
+##  Expected Results Table
 
 | Model | Internal CV (ISIC2019) | External (HAM10000) | Drop |
 |-------|------------------------|---------------------|------|
@@ -134,54 +134,54 @@ Experiment 3: Combined → ISIC2020
 
 ---
 
-## 💡 Key Benefits
+##  Key Benefits
 
 ### For Publication
-✅ Meets TRIPOD-AI guidelines
-✅ Demonstrates external validity
-✅ Proper statistical reporting
-✅ Reproducible methodology
+ Meets TRIPOD-AI guidelines
+ Demonstrates external validity
+ Proper statistical reporting
+ Reproducible methodology
 
 ### For Future Work
-✅ Clear baseline for comparison
-✅ Reusable data splits
-✅ Documented methodology
-✅ Extensible to new datasets
+ Clear baseline for comparison
+ Reusable data splits
+ Documented methodology
+ Extensible to new datasets
 
 ### For Clinical Application
-✅ Proven generalization
-✅ Multiple data sources tested
-✅ Realistic performance expectations
-✅ Credible for deployment
+ Proven generalization
+ Multiple data sources tested
+ Realistic performance expectations
+ Credible for deployment
 
 ---
 
-## 🔧 Scripts Structure
+##  Scripts Structure
 
 ```
 scripts/
-├── validation/
-│   ├── prepare_cv_splits.py          # Create 10-fold splits
-│   ├── prepare_ham10000.py           # Prepare external dataset
-│   ├── evaluate_external.py          # External validation
-│   ├── cross_dataset_evaluation.py   # Train A → Test B
-│   ├── statistical_tests.py          # McNemar, confidence intervals
-│   └── generate_report.py            # Automated reporting
-│
-├── training/
-│   ├── train_kfold_robust.py         # 10-fold CV training
-│   ├── train_external.py             # Train on A, test on B
-│   └── train_combined.py             # Multi-dataset training
-│
-└── analysis/
-    ├── calibration_analysis.py       # Probability calibration
-    ├── subgroup_analysis.py          # Per-demographic analysis
-    └── error_analysis.py             # Failure case analysis
+ validation/
+    prepare_cv_splits.py          # Create 10-fold splits
+    prepare_ham10000.py           # Prepare external dataset
+    evaluate_external.py          # External validation
+    cross_dataset_evaluation.py   # Train A → Test B
+    statistical_tests.py          # McNemar, confidence intervals
+    generate_report.py            # Automated reporting
+
+ training/
+    train_kfold_robust.py         # 10-fold CV training
+    train_external.py             # Train on A, test on B
+    train_combined.py             # Multi-dataset training
+
+ analysis/
+     calibration_analysis.py       # Probability calibration
+     subgroup_analysis.py          # Per-demographic analysis
+     error_analysis.py             # Failure case analysis
 ```
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### Step 1: Choose Your Path
 ```bash
@@ -211,7 +211,7 @@ python scripts/validation/cross_dataset_evaluation.py
 
 ---
 
-## 📌 Important Notes
+##  Important Notes
 
 ### Class Mapping
 HAM10000 has 7 classes (missing SCC from ISIC2019)
@@ -232,7 +232,7 @@ External validation typically shows 5-15% drop
 
 ---
 
-## 🎓 Publication Checklist
+##  Publication Checklist
 
 Before submitting to journal:
 - [ ] 10-fold CV with mean ± std reported

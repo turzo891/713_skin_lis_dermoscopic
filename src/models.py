@@ -164,9 +164,11 @@ class ViTModel(nn.Module):
     """Vision Transformer (ViT-B/16) for skin lesion classification."""
 
     def __init__(self, num_classes: int = 7, pretrained: bool = True, dropout: float = 0.1,
-                 model_name: str = 'vit_base_patch16_224'):
+                 model_name: str = 'vit_base_patch16_224', image_size: int = 224):
         super().__init__()
-        self.model = timm.create_model(model_name, pretrained=pretrained, num_classes=num_classes, drop_rate=dropout)
+        self.model = timm.create_model(
+            model_name, pretrained=pretrained, num_classes=num_classes, drop_rate=dropout, img_size=image_size
+        )
         self.num_classes = num_classes
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -205,9 +207,11 @@ class SwinTransformerModel(nn.Module):
     """Swin Transformer for skin lesion classification."""
 
     def __init__(self, num_classes: int = 7, pretrained: bool = True, dropout: float = 0.1,
-                 model_name: str = 'swin_base_patch4_window7_224'):
+                 model_name: str = 'swin_base_patch4_window7_224', image_size: int = 224):
         super().__init__()
-        self.model = timm.create_model(model_name, pretrained=pretrained, num_classes=num_classes, drop_rate=dropout)
+        self.model = timm.create_model(
+            model_name, pretrained=pretrained, num_classes=num_classes, drop_rate=dropout, img_size=image_size
+        )
         self.num_classes = num_classes
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -758,22 +762,28 @@ class MultiModalFusionNet(nn.Module):
         return self.concept_bottleneck.get_concept_activations(fused_features)
 
 
-def get_model(name: str, num_classes: int = 7, pretrained: bool = True, dropout: float = 0.5) -> nn.Module:
+def get_model(
+    name: str, num_classes: int = 7, pretrained: bool = True, dropout: float = 0.5, image_size: int = 224
+) -> nn.Module:
     """Factory function to create models."""
     name = name.lower()
     if name == 'resnet50':
+        # Note: torchvision's ResNet is flexible with input size
         return ResNet50Model(num_classes, pretrained, dropout)
     elif name in ['efficientnet', 'efficientnet_b4']:
+        # Note: timm's EfficientNet handles dynamic image sizes well
         return EfficientNetModel(num_classes, pretrained, dropout)
     elif name in ['efficientnet_dualpath', 'efficientnet_dual', 'dual']:
         return EfficientNetDualPath(num_classes, pretrained, dropout)
     elif name in ['densenet', 'densenet201']:
+        # Note: torchvision's DenseNet is flexible with input size
         return DenseNetModel(num_classes, pretrained, dropout)
     elif name in ['vit', 'vit_base']:
-        return ViTModel(num_classes, pretrained, dropout)
+        return ViTModel(num_classes, pretrained, dropout, image_size=image_size)
     elif name in ['swin', 'swin_base']:
-        return SwinTransformerModel(num_classes, pretrained, dropout)
+        return SwinTransformerModel(num_classes, pretrained, dropout, image_size=image_size)
     elif name in ['hybrid', 'hybrid_cnn_vit', 'cnn_vit']:
+        # Note: Hybrid model has its own internal image size logic
         return HybridCNNViT(num_classes, pretrained, dropout)
     else:
         raise ValueError(f"Unknown model: {name}")

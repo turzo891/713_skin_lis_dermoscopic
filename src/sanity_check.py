@@ -39,15 +39,15 @@ def print_header(text):
 
 def print_success(text):
     """Print a success message."""
-    print(f"{Colors.OKGREEN}✓ {text}{Colors.ENDC}")
+    print(f"{Colors.OKGREEN} {text}{Colors.ENDC}")
 
 def print_warning(text):
     """Print a warning message."""
-    print(f"{Colors.WARNING}⚠ {text}{Colors.ENDC}")
+    print(f"{Colors.WARNING} {text}{Colors.ENDC}")
 
 def print_error(text):
     """Print an error message."""
-    print(f"{Colors.FAIL}✗ {text}{Colors.ENDC}")
+    print(f"{Colors.FAIL} {text}{Colors.ENDC}")
 
 def print_info(text):
     """Print an info message."""
@@ -150,7 +150,7 @@ def check_cuda():
         print_error(f"Error checking CUDA: {str(e)}")
         return False
 
-def check_directory_structure():
+def check_directory_structure(fix=False):
     """Check if project directory structure is correct."""
     print_header("4. DIRECTORY STRUCTURE CHECK")
 
@@ -175,12 +175,21 @@ def check_directory_structure():
         if os.path.isdir(dir_path):
             print_success(f"{dir_path:30} {description}")
         else:
-            missing_dirs.append(dir_path)
-            print_error(f"{dir_path:30} NOT FOUND")
+            if fix:
+                try:
+                    os.makedirs(dir_path)
+                    print_success(f"{dir_path:30} CREATED")
+                except Exception as e:
+                    print_error(f"{dir_path:30} FAILED TO CREATE ({e})")
+                    missing_dirs.append(dir_path)
+            else:
+                missing_dirs.append(dir_path)
+                print_error(f"{dir_path:30} NOT FOUND")
 
     if missing_dirs:
-        print_error(f"\nMissing directories: {', '.join(missing_dirs)}")
-        print_info("Create with: mkdir -p " + " ".join(missing_dirs))
+        if not fix:
+            print_error(f"\nMissing directories: {', '.join(missing_dirs)}")
+            print_info("Create with: mkdir -p " + " ".join(missing_dirs))
         return False
     else:
         print_success("\nAll required directories exist")
@@ -461,6 +470,7 @@ def main():
     parser = argparse.ArgumentParser(description='Comprehensive sanity check for skin cancer classification project')
     parser.add_argument('--quick', action='store_true', help='Skip model testing (faster)')
     parser.add_argument('--skip-data', action='store_true', help='Skip dataset check')
+    parser.add_argument('--fix', action='store_true', help='Automatically fix detected issues, like creating missing directories.')
     args = parser.parse_args()
 
     print(f"{Colors.HEADER}{Colors.BOLD}")
@@ -475,7 +485,7 @@ def main():
     results['Python Version'] = check_python_version()
     results['Dependencies'] = check_dependencies()
     results['CUDA/GPU'] = check_cuda()
-    results['Directory Structure'] = check_directory_structure()
+    results['Directory Structure'] = check_directory_structure(fix=args.fix)
 
     if not args.skip_data:
         results['Dataset'] = check_dataset()

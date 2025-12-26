@@ -363,7 +363,7 @@ class KFoldCrossValidator:
         with open(results_path, 'w') as f:
             json.dump(aggregate_results, f, indent=2)
 
-        print(f"\n✓ Results saved to: {results_path}")
+        print(f"\n Results saved to: {results_path}")
 
     def print_summary(self):
         """Print cross-validation summary."""

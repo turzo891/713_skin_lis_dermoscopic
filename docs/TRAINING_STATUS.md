@@ -1,6 +1,6 @@
 # Training Status - What's Happening?
 
-## Your Training is Running Successfully! ✓
+## Your Training is Running Successfully! 
 
 **Current Status:**
 ```
@@ -108,14 +108,14 @@ UserWarning: Argument(s) 'max_holes' are not valid for CoarseDropout
 ### Your Current Performance
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│ RESOURCE UTILIZATION (Estimated)                        │
-├─────────────────────────────────────────────────────────┤
-│ GPU Compute:  ████████████████ (96.6% busy)            │
-│ Data Loading: ░░░░░░░░░░░░░░░░ (3.4% overhead)         │
-│ CPU Workers:  ████████░░░░░░░░ (8 workers active)      │
-│ Batch Speed:  8.09 batches/sec (~517 images/sec)       │
-└─────────────────────────────────────────────────────────┘
+
+ RESOURCE UTILIZATION (Estimated)                        
+
+ GPU Compute:   (96.6% busy)            
+ Data Loading:  (3.4% overhead)         
+ CPU Workers:   (8 workers active)      
+ Batch Speed:  8.09 batches/sec (~517 images/sec)       
+
 ```
 
 **This is EXCELLENT!** Your GPU is almost never waiting for data.
@@ -148,7 +148,7 @@ Total time (50 epochs): ~50 minutes
 
 ```
 Epoch 1/50 Progress:
-[████████████████████████████████████████████░░] 93%
+[] 93%
 
 Current batch: 258/278
 Remaining: 20 batches (~2.5 seconds)
@@ -299,7 +299,7 @@ python3 train_optimized.py --lr 0.00005 --batch_size 64 --use_amp
 **Per-Class Performance:**
 ```
 Class       Precision   Recall   F1-Score
-─────────────────────────────────────────
+
 MEL         0.92        0.94     0.93
 NV          0.98        0.99     0.98
 BCC         0.93        0.91     0.92
@@ -308,7 +308,7 @@ BKL         0.88        0.90     0.89
 DF          0.72        0.76     0.74
 VASC        0.84        0.87     0.85
 SCC         0.80        0.83     0.81
-─────────────────────────────────────────
+
 Weighted    0.94        0.95     0.95
 ```
 
@@ -321,7 +321,7 @@ Weighted    0.94        0.95     0.95
 
 ## Summary
 
-**Status:** ✓ Training is running perfectly!
+**Status:**  Training is running perfectly!
 
 **Performance:**
 - Speed: 8.09 batches/sec (~517 images/sec)

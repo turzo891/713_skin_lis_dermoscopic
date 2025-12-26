@@ -232,10 +232,10 @@ python3 train_optimized.py \
 
 **Expected performance:**
 ```
-CPU:  ████████████░░░░ (80%)  ← 10 workers preprocessing
-RAM:  █████████░░░░░░░ (60%)  ← Buffering 3 batches
-GPU:  ████████████████ (98%)  ← Fully utilized!
-────────────────────────────────
+CPU:   (80%)  ← 10 workers preprocessing
+RAM:   (60%)  ← Buffering 3 batches
+GPU:   (98%)  ← Fully utilized!
+
 Speed: ~7 images/second
 Time:  ~50 minutes for 50 epochs
 Accuracy: 94-96%
@@ -247,17 +247,17 @@ Accuracy: 94-96%
 
 ```
 START HERE
-    │
-    ├─ Do you need mean ± std for a research paper?
-    │   YES → Use train_kfold_cv.py
-    │   NO  → Continue
-    │
-    ├─ Are you learning how the code works?
-    │   YES → Use train_single_model.py
-    │   NO  → Continue
-    │
-    └─ Do you want the best model in minimum time?
-        YES → Use train_optimized.py ✓ (RECOMMENDED)
+    
+     Do you need mean ± std for a research paper?
+       YES → Use train_kfold_cv.py
+       NO  → Continue
+    
+     Are you learning how the code works?
+       YES → Use train_single_model.py
+       NO  → Continue
+    
+     Do you want the best model in minimum time?
+        YES → Use train_optimized.py  (RECOMMENDED)
 ```
 
 ---
@@ -481,26 +481,26 @@ python3 train_single_model.py \
 ## One-Page Cheat Sheet
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    QUICK REFERENCE                           │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  GOAL: Train a model fast                                   │
-│  → python3 train_optimized.py --model efficientnet \        │
-│     --epochs 50 --batch_size 64 --use_amp --num_workers 10  │
-│                                                              │
-│  GOAL: Get mean ± std for paper                             │
-│  → python3 train_kfold_cv.py --model efficientnet \         │
-│     --n_folds 10 --epochs 50                                │
-│                                                              │
-│  GOAL: Learn the code                                       │
-│  → python3 train_single_model.py --model resnet50 \         │
-│     --epochs 10 --batch_size 32                             │
-│                                                              │
-│  MONITOR: Check resource usage                              │
-│  → python3 ../monitoring/monitor_resources.py               │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+                    QUICK REFERENCE                           
+
+                                                              
+  GOAL: Train a model fast                                   
+  → python3 train_optimized.py --model efficientnet \        
+     --epochs 50 --batch_size 64 --use_amp --num_workers 10  
+                                                              
+  GOAL: Get mean ± std for paper                             
+  → python3 train_kfold_cv.py --model efficientnet \         
+     --n_folds 10 --epochs 50                                
+                                                              
+  GOAL: Learn the code                                       
+  → python3 train_single_model.py --model resnet50 \         
+     --epochs 10 --batch_size 32                             
+                                                              
+  MONITOR: Check resource usage                              
+  → python3 ../monitoring/monitor_resources.py               
+                                                              
+
 ```
 
 ---

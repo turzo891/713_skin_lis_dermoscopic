@@ -26,7 +26,7 @@ print(f"Query shape: {query.shape}")
 print(f"Key shape: {key.shape}")
 print(f"Attended output shape: {attended.shape}")
 assert attended.shape == query.shape
-print("✓ Cross-modal attention works correctly")
+print(" Cross-modal attention works correctly")
 
 # Test 2: MultiModalFusionNet instantiation
 print("\n[Test 2] Multi-Modal Fusion Network Instantiation")
@@ -45,9 +45,9 @@ for encoder in encoders:
         use_cross_attention=True
     )
     total, trainable = count_parameters(model)
-    print(f"  ✓ {encoder}: {total/1e6:.1f}M parameters")
+    print(f"   {encoder}: {total/1e6:.1f}M parameters")
 
-print("\n✓ All image encoders instantiated successfully")
+print("\n All image encoders instantiated successfully")
 
 # Test 3: Forward pass with hybrid encoder
 print("\n[Test 3] Forward Pass (Hybrid CNN-ViT + Cross-Attention)")
@@ -72,7 +72,7 @@ with torch.no_grad():
 
 print(f"Output shape: {output.shape}")
 assert output.shape == (batch_size, 8), f"Expected ({batch_size}, 8), got {output.shape}"
-print("✓ Forward pass successful")
+print(" Forward pass successful")
 
 # Test 4: Model summary
 print("\n[Test 4] Model Summary (Hybrid + Cross-Attention)")
@@ -95,7 +95,7 @@ with torch.no_grad():
 
 print(f"Output shape: {output_no_attn.shape}")
 assert output_no_attn.shape == (batch_size, 8)
-print("✓ Forward pass without cross-attention successful")
+print(" Forward pass without cross-attention successful")
 
 total_no_attn, _ = count_parameters(model_no_attn)
 print(f"Parameters (no attention): {total_no_attn/1e6:.1f}M")
@@ -109,7 +109,7 @@ with torch.no_grad():
 print(f"Feature shape: {features.shape}")
 assert features.shape[0] == batch_size
 assert features.dim() == 2
-print("✓ Feature extraction successful")
+print(" Feature extraction successful")
 
 # Test 7: Different metadata dimensions
 print("\n[Test 7] Different Metadata Dimensions")
@@ -126,10 +126,10 @@ for meta_dim in metadata_dims:
     test_metadata = torch.randn(batch_size, meta_dim)
     with torch.no_grad():
         out = model_test(images, test_metadata)
-    print(f"  Metadata dim={meta_dim}: Output shape {out.shape} ✓")
+    print(f"  Metadata dim={meta_dim}: Output shape {out.shape} ")
     assert out.shape == (batch_size, 8)
 
-print("✓ All metadata dimensions work correctly")
+print(" All metadata dimensions work correctly")
 
 # Test 8: Gradient flow
 print("\n[Test 8] Gradient Flow")
@@ -145,7 +145,7 @@ loss.backward()
 has_gradients = any(p.grad is not None for p in model.parameters() if p.requires_grad)
 print(f"  Gradients computed: {has_gradients}")
 assert has_gradients, "No gradients computed!"
-print("✓ Gradient flow successful")
+print(" Gradient flow successful")
 
 # Test 9: Comparison of model sizes
 print("\n[Test 9] Model Size Comparison")
@@ -179,10 +179,10 @@ for name, encoder, use_attn in configs:
 
     print(f"{name:<30} {total/1e6:>8.1f}M      {reduction:>6.1f}%")
 
-print("✓ Model size comparison complete")
+print(" Model size comparison complete")
 
 print("\n" + "="*80)
-print("✓ ALL TESTS PASSED - Multi-Modal Fusion Network is working!")
+print(" ALL TESTS PASSED - Multi-Modal Fusion Network is working!")
 print("="*80)
 
 # Summary
@@ -213,10 +213,10 @@ Multi-Modal Fusion Network Architecture:
    - Final class predictions: [B, num_classes]
 
 Key Benefits:
-✓ Addresses BIGGEST research gap: 99% of papers ignore multi-modal data
-✓ Cross-attention learns which features interact (interpretable)
-✓ Expected +6-8% improvement over image-only models
-✓ Flexible: Works with different image encoders
+ Addresses BIGGEST research gap: 99% of papers ignore multi-modal data
+ Cross-attention learns which features interact (interpretable)
+ Expected +6-8% improvement over image-only models
+ Flexible: Works with different image encoders
 
 Performance Expectations:
 - Baseline (image-only): ~60%

@@ -35,24 +35,24 @@ python3 train_optimized.py \
 ## The Three Training Scripts - Quick Comparison
 
 ```
-┌──────────────────────┬──────────────────┬──────────────────┬──────────────────┐
-│                      │ train_single_    │ train_kfold_     │ train_optimized_ │
-│                      │ model.py         │ cv.py            │ py               │
-├──────────────────────┼──────────────────┼──────────────────┼──────────────────┤
-│ Speed                │ 2.5 img/s        │ 2.5 img/s        │ 7.0 img/s        │
-│ GPU Usage            │ 60%              │ 60%              │ 98%              │
-│ Time (50 epochs)     │ 2h 30min         │ 25 hours         │ 50 min           │
-│ Accuracy             │ 94%              │ 94 ± 1.2%        │ 94-96%           │
-│ Use For              │ Learning         │ Research papers  │ Production       │
-│ Recommended?         │ No               │ Only for papers  │ YES!             │
-└──────────────────────┴──────────────────┴──────────────────┴──────────────────┘
+
+                       train_single_     train_kfold_      train_optimized_ 
+                       model.py          cv.py             py               
+
+ Speed                 2.5 img/s         2.5 img/s         7.0 img/s        
+ GPU Usage             60%               60%               98%              
+ Time (50 epochs)      2h 30min          25 hours          50 min           
+ Accuracy              94%               94 ± 1.2%         94-96%           
+ Use For               Learning          Research papers   Production       
+ Recommended?          No                Only for papers   YES!             
+
 ```
 
 ---
 
 ## Decision: Which One Should I Use?
 
-### 🏆 Use `train_optimized.py` (Recommended)
+###  Use `train_optimized.py` (Recommended)
 
 **When:** 95% of the time
 **Why:** 3x faster, uses your RTX 3090 fully, same accuracy
@@ -69,7 +69,7 @@ python3 train_optimized.py \
 
 ---
 
-### 📊 Use `train_kfold_cv.py` (For Research)
+###  Use `train_kfold_cv.py` (For Research)
 
 **When:** Writing a research paper
 **Why:** Gives you mean ± std (e.g., "95.42 ± 1.23%")
@@ -84,7 +84,7 @@ python3 train_kfold_cv.py \
 
 ---
 
-### 📚 Use `train_single_model.py` (For Learning)
+###  Use `train_single_model.py` (For Learning)
 
 **When:** Learning how the code works
 **Why:** Simple, easy to understand

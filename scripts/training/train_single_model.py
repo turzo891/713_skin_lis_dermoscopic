@@ -65,11 +65,11 @@ def main():
     # Setup
     set_seed(args.seed)
     device = get_device()
-    print(f"\n✓ Device: {device}")
+    print(f"\n Device: {device}")
 
     # Create output directories
     dirs = setup_output_directory(args.model)
-    print(f"✓ Output directory: {dirs['root']}")
+    print(f" Output directory: {dirs['root']}")
 
     # Training configuration
     config = {
@@ -100,11 +100,11 @@ def main():
     num_classes = len(label_encoder)
     class_names = list(label_encoder.keys())
 
-    print(f"✓ Train samples: {len(train_loader.dataset)}")
-    print(f"✓ Validation samples: {len(val_loader.dataset)}")
-    print(f"✓ Test samples: {len(test_loader.dataset)}")
-    print(f"✓ Number of classes: {num_classes}")
-    print(f"✓ Classes: {', '.join(class_names)}")
+    print(f" Train samples: {len(train_loader.dataset)}")
+    print(f" Validation samples: {len(val_loader.dataset)}")
+    print(f" Test samples: {len(test_loader.dataset)}")
+    print(f" Number of classes: {num_classes}")
+    print(f" Classes: {', '.join(class_names)}")
 
     # Save training info
     save_training_info(dirs, config, args.model, {
@@ -124,8 +124,8 @@ def main():
     # Count parameters
     total_params = sum(p.numel() for p in model.parameters())
     trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    print(f"✓ Total parameters: {total_params:,}")
-    print(f"✓ Trainable parameters: {trainable_params:,}")
+    print(f" Total parameters: {total_params:,}")
+    print(f" Trainable parameters: {trainable_params:,}")
 
     # Train
     print("\n" + "="*80)
@@ -185,7 +185,7 @@ def main():
     print("\n" + "="*80)
     print("TRAINING COMPLETE!")
     print("="*80)
-    print(f"✓ All outputs saved to: {dirs['root']}")
+    print(f" All outputs saved to: {dirs['root']}")
     print(f"\nTest Results:")
     print(f"  - Accuracy: {test_metrics.get('accuracy', 0):.4f}")
     print(f"  - F1 Score (Macro): {test_metrics.get('f1_macro', 0):.4f}")

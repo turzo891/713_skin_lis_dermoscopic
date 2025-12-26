@@ -15,9 +15,9 @@ This document outlines a comprehensive, publication-ready validation strategy fo
 ### What Was Done (Inadequate)
 ```
 Training Dataset: ISIC2019 only
-├── Train: 70% of ISIC2019 (~17,732 images)
-├── Val:   15% of ISIC2019 (~3,800 images)    ← SAME SOURCE
-└── Test:  15% of ISIC2019 (~3,800 images)    ← SAME SOURCE
+ Train: 70% of ISIC2019 (~17,732 images)
+ Val:   15% of ISIC2019 (~3,800 images)    ← SAME SOURCE
+ Test:  15% of ISIC2019 (~3,800 images)    ← SAME SOURCE
 
 Issue: No external validation - cannot prove generalization!
 ```
@@ -37,22 +37,22 @@ Issue: No external validation - cannot prove generalization!
 
 ```
 TIER 1: Internal Validation (Development)
-├── Dataset: ISIC2019 (25,331 images)
-├── Method: 10-Fold Stratified Cross-Validation
-├── Purpose: Model selection, hyperparameter tuning
-└── Metric: Mean ± Std across folds
+ Dataset: ISIC2019 (25,331 images)
+ Method: 10-Fold Stratified Cross-Validation
+ Purpose: Model selection, hyperparameter tuning
+ Metric: Mean ± Std across folds
 
 TIER 2: External Validation (Generalization)
-├── Dataset 1: HAM10000 (10,015 images) - Different source
-├── Dataset 2: ISIC2020 (33,126 images) - Different year
-├── Method: Test on entire external datasets
-└── Purpose: Prove generalization to unseen data
+ Dataset 1: HAM10000 (10,015 images) - Different source
+ Dataset 2: ISIC2020 (33,126 images) - Different year
+ Method: Test on entire external datasets
+ Purpose: Prove generalization to unseen data
 
 TIER 3: Cross-Dataset Training (Robustness)
-├── Train A → Test B: ISIC2019 → HAM10000
-├── Train B → Test A: HAM10000 → ISIC2019
-├── Train A+B → Test C: Combined → ISIC2020
-└── Purpose: Maximum robustness assessment
+ Train A → Test B: ISIC2019 → HAM10000
+ Train B → Test A: HAM10000 → ISIC2019
+ Train A+B → Test C: Combined → ISIC2020
+ Purpose: Maximum robustness assessment
 ```
 
 ---
@@ -131,7 +131,7 @@ test_data = ISIC2020              # Download required
 **Scenario B: Cross-Dataset Evaluation Matrix**
 ```
 Training Dataset → Test Dataset
-─────────────────────────────────────
+
 ISIC2019        → HAM10000   (Acc: ?)
 HAM10000        → ISIC2019   (Acc: ?)
 ISIC2019+HAM    → ISIC2020   (Acc: ?)
@@ -146,14 +146,14 @@ ISIC2019+HAM    → ISIC2020   (Acc: ?)
 - **Classes:** 8 (MEL, NV, BCC, AK, BKL, DF, VASC, SCC)
 - **Source:** International Skin Imaging Collaboration
 - **Year:** 2019
-- **Status:** ✅ Downloaded and validated
+- **Status:**  Downloaded and validated
 
 ### HAM10000 (External Validation)
 - **Images:** 10,015
 - **Classes:** 7 (akiec, bcc, bkl, df, mel, nv, vasc)
 - **Source:** Hospital in Austria
 - **Year:** 2018
-- **Status:** ✅ Downloaded and available
+- **Status:**  Downloaded and available
 - **Note:** Missing SCC class (only in ISIC2019)
 
 ### ISIC2020 (Optional - Future Validation)
@@ -161,7 +161,7 @@ ISIC2019+HAM    → ISIC2020   (Acc: ?)
 - **Classes:** 8 classes
 - **Source:** ISIC Challenge 2020
 - **Year:** 2020
-- **Status:** ❌ Not downloaded yet
+- **Status:**  Not downloaded yet
 - **Download:** Can be automated
 
 ---
@@ -230,7 +230,7 @@ vasc  (Vascular Lesion)          → Maps to VASC
 Based on current training results:
 ```
 Model              | Expected Accuracy (Mean ± Std)
-─────────────────────────────────────────────────
+
 Swin Transformer   | 90-92% ± 2-3%
 ViT                | 87-89% ± 2-3%
 DenseNet           | 86-88% ± 2-3%
@@ -242,7 +242,7 @@ EfficientNet       | 80-83% ± 2-3%
 Expected performance drop: **5-15%** (normal!)
 ```
 Model              | Expected Accuracy on HAM10000
-─────────────────────────────────────────────────
+
 Swin Transformer   | 78-85%
 ViT                | 75-82%
 DenseNet           | 73-80%
@@ -391,21 +391,21 @@ Model Performance:
 ## 13. Success Criteria
 
 ### Minimum Requirements (For Publication)
-✅ 10-fold CV on primary dataset (ISIC2019)
-✅ External validation on ≥1 dataset (HAM10000)
-✅ Performance metrics with confidence intervals
-✅ Statistical comparison between models
-✅ Documented data splits (reproducible)
-✅ Class-specific performance analysis
+ 10-fold CV on primary dataset (ISIC2019)
+ External validation on ≥1 dataset (HAM10000)
+ Performance metrics with confidence intervals
+ Statistical comparison between models
+ Documented data splits (reproducible)
+ Class-specific performance analysis
 
 ### Gold Standard (Top-Tier Publication)
-✅ All minimum requirements
-✅ External validation on ≥2 datasets (HAM10000 + ISIC2020)
-✅ Cross-dataset training experiments
-✅ Subgroup analysis (age, sex, lesion location)
-✅ Calibration analysis
-✅ Comparison with dermatologist performance
-✅ Error analysis and failure cases
+ All minimum requirements
+ External validation on ≥2 datasets (HAM10000 + ISIC2020)
+ Cross-dataset training experiments
+ Subgroup analysis (age, sex, lesion location)
+ Calibration analysis
+ Comparison with dermatologist performance
+ Error analysis and failure cases
 
 ---
 
@@ -440,11 +440,11 @@ Model Performance:
 
 ### What This Enables
 
-✅ **Publication in top journals** (external validation required)
-✅ **Clinical credibility** (proven generalization)
-✅ **Future work baseline** (reproducible benchmarks)
-✅ **Model comparison** (fair evaluation)
-✅ **Real-world deployment confidence** (tested on multiple sources)
+ **Publication in top journals** (external validation required)
+ **Clinical credibility** (proven generalization)
+ **Future work baseline** (reproducible benchmarks)
+ **Model comparison** (fair evaluation)
+ **Real-world deployment confidence** (tested on multiple sources)
 
 ---
 

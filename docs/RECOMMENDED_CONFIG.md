@@ -444,12 +444,12 @@ python3 scripts/training/train_optimized.py \
 ```
 
 **This configuration:**
-- ✓ Maximizes your RTX 3090 utilization
-- ✓ Uses CPU, GPU, and RAM efficiently together
-- ✓ Achieves best accuracy (94-96%)
-- ✓ Trains in ~50 minutes
-- ✓ Safe (won't run out of memory)
-- ✓ Recommended by me for your hardware
+-  Maximizes your RTX 3090 utilization
+-  Uses CPU, GPU, and RAM efficiently together
+-  Achieves best accuracy (94-96%)
+-  Trains in ~50 minutes
+-  Safe (won't run out of memory)
+-  Recommended by me for your hardware
 
 **Just copy and paste this command. It's optimized for your system.**
 

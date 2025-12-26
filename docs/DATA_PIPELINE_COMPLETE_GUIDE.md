@@ -21,50 +21,50 @@
 ## Overview: Data Flow
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                    COMPLETE DATA PIPELINE                            │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  Phase 0: RAW DOWNLOAD                                              │
-│  ┌──────────────────┐    ┌──────────────────┐                       │
-│  │   ISIC2019       │    │   HAM10000       │                       │
-│  │   25,331 images  │    │   10,015 images  │                       │
-│  │   Raw CSVs       │    │   Raw CSVs       │                       │
-│  └────────┬─────────┘    └────────┬─────────┘                       │
-│           │                       │                                  │
-│           └───────────┬───────────┘                                  │
-│                       ▼                                              │
-│  Phase 1: OPENREFINE CLEANING                                       │
-│  ┌──────────────────────────────────────┐                           │
-│  │  - Standardize labels                │                           │
-│  │  - Remove duplicates                 │                           │
-│  │  - Fix metadata issues               │                           │
-│  │  - Quality flagging                  │                           │
-│  └────────────────┬─────────────────────┘                           │
-│                   │                                                  │
-│                   │  cleaned_metadata.csv                            │
-│                   ▼                                                  │
-│  Phase 2: TIDY DATA TRANSFORMATION                                  │
-│  ┌──────────────────────────────────────┐                           │
-│  │  master_metadata.csv  (Single Source)│                           │
-│  │  splits.csv           (80-20 + 5-CV) │                           │
-│  │  class_weights.csv    (Imbalance)    │                           │
-│  │  schema.json          (Structure)    │                           │
-│  └────────────────┬─────────────────────┘                           │
-│                   │                                                  │
-│                   ▼                                                  │
-│  Phase 3: PYTORCH DATASET                                           │
-│  ┌──────────────────────────────────────┐                           │
-│  │  TidySkinDataset                     │                           │
-│  │  + Focal Loss                        │                           │
-│  │  + Weighted Sampling                 │                           │
-│  │  + Stratified Splits                 │                           │
-│  └──────────────────────────────────────┘                           │
-│                   │                                                  │
-│                   ▼                                                  │
-│            TRAINING READY ✓                                         │
-│                                                                      │
-└─────────────────────────────────────────────────────────────────────┘
+
+                    COMPLETE DATA PIPELINE                            
+
+                                                                      
+  Phase 0: RAW DOWNLOAD                                              
+                             
+     ISIC2019              HAM10000                              
+     25,331 images         10,015 images                         
+     Raw CSVs              Raw CSVs                              
+                             
+                                                                    
+                                             
+                                                                     
+  Phase 1: OPENREFINE CLEANING                                       
+                             
+    - Standardize labels                                           
+    - Remove duplicates                                            
+    - Fix metadata issues                                          
+    - Quality flagging                                             
+                             
+                                                                     
+                     cleaned_metadata.csv                            
+                                                                     
+  Phase 2: TIDY DATA TRANSFORMATION                                  
+                             
+    master_metadata.csv  (Single Source)                           
+    splits.csv           (80-20 + 5-CV)                            
+    class_weights.csv    (Imbalance)                               
+    schema.json          (Structure)                               
+                             
+                                                                     
+                                                                     
+  Phase 3: PYTORCH DATASET                                           
+                             
+    TidySkinDataset                                                
+    + Focal Loss                                                   
+    + Weighted Sampling                                            
+    + Stratified Splits                                            
+                             
+                                                                     
+                                                                     
+            TRAINING READY                                          
+                                                                      
+
 ```
 
 ---
@@ -106,7 +106,7 @@ Place them in: data/raw/ISIC2019/
 if [ -f "ISIC_2019_Training_Input.zip" ]; then
     echo "Extracting images..."
     unzip -q ISIC_2019_Training_Input.zip
-    echo "✓ ISIC2019 extraction complete"
+    echo " ISIC2019 extraction complete"
 fi
 
 cd ../../..
@@ -115,13 +115,13 @@ cd ../../..
 **Expected Structure:**
 ```
 data/raw/ISIC2019/
-├── ISIC_2019_Training_Input/
-│   ├── ISIC_2019_Training_Input/
-│   │   ├── ISIC_0000000.jpg
-│   │   ├── ISIC_0000001.jpg
-│   │   └── ... (25,331 images)
-├── ISIC_2019_Training_GroundTruth.csv
-└── ISIC_2019_Training_Metadata.csv
+ ISIC_2019_Training_Input/
+    ISIC_2019_Training_Input/
+       ISIC_0000000.jpg
+       ISIC_0000001.jpg
+       ... (25,331 images)
+ ISIC_2019_Training_GroundTruth.csv
+ ISIC_2019_Training_Metadata.csv
 ```
 
 ### Step 0.2: Download HAM10000
@@ -160,7 +160,7 @@ if [ -f "HAM10000_images_part_2.zip" ]; then
     unzip -q HAM10000_images_part_2.zip
 fi
 
-echo "✓ HAM10000 extraction complete"
+echo " HAM10000 extraction complete"
 
 cd ../../..
 ```
@@ -168,13 +168,13 @@ cd ../../..
 **Expected Structure:**
 ```
 data/raw/HAM10000/
-├── HAM10000_images_part_1/
-│   ├── ISIC_0024306.jpg
-│   └── ... (5,000 images)
-├── HAM10000_images_part_2/
-│   ├── ISIC_0024307.jpg
-│   └── ... (5,015 images)
-└── HAM10000_metadata.csv
+ HAM10000_images_part_1/
+    ISIC_0024306.jpg
+    ... (5,000 images)
+ HAM10000_images_part_2/
+    ISIC_0024307.jpg
+    ... (5,015 images)
+ HAM10000_metadata.csv
 ```
 
 ### Step 0.3: Verify Raw Downloads
@@ -187,15 +187,15 @@ echo "Verifying raw dataset downloads..."
 # Check ISIC2019
 if [ -d "data/raw/ISIC2019/ISIC_2019_Training_Input/ISIC_2019_Training_Input" ]; then
     ISIC_COUNT=$(ls data/raw/ISIC2019/ISIC_2019_Training_Input/ISIC_2019_Training_Input/*.jpg 2>/dev/null | wc -l)
-    echo "✓ ISIC2019 images: $ISIC_COUNT (expected: 25,331)"
+    echo " ISIC2019 images: $ISIC_COUNT (expected: 25,331)"
 else
-    echo "❌ ISIC2019 images not found"
+    echo " ISIC2019 images not found"
 fi
 
 if [ -f "data/raw/ISIC2019/ISIC_2019_Training_GroundTruth.csv" ]; then
-    echo "✓ ISIC2019 ground truth found"
+    echo " ISIC2019 ground truth found"
 else
-    echo "❌ ISIC2019 ground truth missing"
+    echo " ISIC2019 ground truth missing"
 fi
 
 # Check HAM10000
@@ -203,16 +203,16 @@ HAM_COUNT1=$(ls data/raw/HAM10000/HAM10000_images_part_1/*.jpg 2>/dev/null | wc 
 HAM_COUNT2=$(ls data/raw/HAM10000/HAM10000_images_part_2/*.jpg 2>/dev/null | wc -l)
 HAM_TOTAL=$((HAM_COUNT1 + HAM_COUNT2))
 
-echo "✓ HAM10000 images: $HAM_TOTAL (expected: 10,015)"
+echo " HAM10000 images: $HAM_TOTAL (expected: 10,015)"
 
 if [ -f "data/raw/HAM10000/HAM10000_metadata.csv" ]; then
-    echo "✓ HAM10000 metadata found"
+    echo " HAM10000 metadata found"
 else
-    echo "❌ HAM10000 metadata missing"
+    echo " HAM10000 metadata missing"
 fi
 
 echo "
-✓ Raw data verification complete
+ Raw data verification complete
 "
 ```
 
@@ -315,11 +315,11 @@ def merge_for_openrefine():
     """Merge both datasets for OpenRefine cleaning."""
     print("Loading ISIC2019 metadata...")
     isic_df = prepare_isic2019_metadata()
-    print(f"  ✓ Loaded {len(isic_df)} ISIC2019 records")
+    print(f"   Loaded {len(isic_df)} ISIC2019 records")
 
     print("Loading HAM10000 metadata...")
     ham_df = prepare_ham10000_metadata()
-    print(f"  ✓ Loaded {len(ham_df)} HAM10000 records")
+    print(f"   Loaded {len(ham_df)} HAM10000 records")
 
     # Standardize column names
     isic_df = isic_df.rename(columns={'anatom_site_general': 'localization'})
@@ -337,7 +337,7 @@ def merge_for_openrefine():
     os.makedirs('data/openrefine', exist_ok=True)
     combined_df.to_csv(output_path, index=False)
 
-    print(f"\n✓ Combined metadata saved to: {output_path}")
+    print(f"\n Combined metadata saved to: {output_path}")
     print(f"  Total records: {len(combined_df)}")
     print(f"  Columns: {list(combined_df.columns)}")
     print(f"\nClass distribution:")
@@ -564,7 +564,7 @@ class TidyDatasetCreator:
         # Exclude missing images
         missing_count = (~df['image_exists']).sum()
         if missing_count > 0:
-            print(f"⚠️  Warning: {missing_count} images not found, excluding")
+            print(f"  Warning: {missing_count} images not found, excluding")
             df = df[df['image_exists']]
 
         # Select final columns
@@ -686,7 +686,7 @@ class TidyDatasetCreator:
             assert len(train_ids & test_ids) == 0, f"Fold {fold}: train/test overlap!"
             assert len(val_ids & test_ids) == 0, f"Fold {fold}: val/test overlap!"
 
-        print("  ✓ No data leakage detected")
+        print("   No data leakage detected")
 
         return splits_df
 
@@ -824,7 +824,7 @@ class TidyDatasetCreator:
         with open(self.output_dir / 'schema.json', 'w') as f:
             json.dump(schema, f, indent=2)
 
-        print(f"   ✓ All files saved to: {self.output_dir}")
+        print(f"    All files saved to: {self.output_dir}")
 
         # Summary report
         print("\n" + "=" * 80)
@@ -861,27 +861,27 @@ def validate_tidy_dataset(tidy_dir: str) -> bool:
         with open(tidy_dir / 'schema.json', 'r') as f:
             schema = json.load(f)
     except Exception as e:
-        print(f"❌ Error loading files: {e}")
+        print(f" Error loading files: {e}")
         return False
 
     # Check 1: Primary key uniqueness
     if metadata['image_id'].duplicated().any():
         errors.append("master_metadata: Duplicate image_ids")
     else:
-        print("✓ Primary key uniqueness (master_metadata)")
+        print(" Primary key uniqueness (master_metadata)")
 
     # Check 2: No null critical columns
     if metadata[['image_id', 'diagnosis', 'class_idx']].isnull().any().any():
         errors.append("master_metadata: Null values in critical columns")
     else:
-        print("✓ No nulls in critical columns")
+        print(" No nulls in critical columns")
 
     # Check 3: Referential integrity
     orphan_ids = set(splits['image_id']) - set(metadata['image_id'])
     if orphan_ids:
         errors.append(f"splits: {len(orphan_ids)} orphan image_ids")
     else:
-        print("✓ Referential integrity (splits → master_metadata)")
+        print(" Referential integrity (splits → master_metadata)")
 
     # Check 4: No data leakage
     for fold in splits['fold'].unique():
@@ -898,13 +898,13 @@ def validate_tidy_dataset(tidy_dir: str) -> bool:
             errors.append(f"Fold {fold}: val/test overlap")
 
     if not errors:
-        print("✓ No data leakage across splits")
+        print(" No data leakage across splits")
 
     # Check 5: Class weights
     if len(weights) != 8:
         errors.append(f"class_weights: Expected 8 rows, got {len(weights)}")
     else:
-        print("✓ Class weights complete (8 classes)")
+        print(" Class weights complete (8 classes)")
 
     # Check 6: Test set consistency across folds
     test_sets = []
@@ -917,18 +917,18 @@ def validate_tidy_dataset(tidy_dir: str) -> bool:
     if not all(s == test_sets[0] for s in test_sets):
         errors.append("Test set differs across folds")
     else:
-        print("✓ Test set identical across all folds")
+        print(" Test set identical across all folds")
 
     # Report
     print("\n" + "=" * 80)
     if errors:
-        print("❌ VALIDATION FAILED")
+        print(" VALIDATION FAILED")
         print("=" * 80)
         for error in errors:
             print(f"  - {error}")
         return False
     else:
-        print("✅ VALIDATION PASSED - Dataset is tidy and ready for training")
+        print(" VALIDATION PASSED - Dataset is tidy and ready for training")
         print("=" * 80)
         return True
 

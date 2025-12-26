@@ -1,6 +1,6 @@
 # Class Imbalance Solution Strategy
 
-## 🔴 Critical Finding: Extreme Class Imbalance
+##  Critical Finding: Extreme Class Imbalance
 
 **Analysis Date:** 2025-12-23
 
@@ -22,17 +22,17 @@
 | **DF** (Minority) | 354 | 1.00% | **Baseline** |
 
 **Imbalance Ratio:** 55.31:1 (NV:DF)
-**Severity:** 🔴 **EXTREMELY IMBALANCED**
+**Severity:**  **EXTREMELY IMBALANCED**
 
 ---
 
 ## Why This Matters
 
 ### Without Handling Class Imbalance:
-❌ Model will predict **NV** for almost everything (easy 55% accuracy)
-❌ Minority classes (DF, VASC, SCC) will be **ignored**
-❌ **Dangerous** for medical diagnosis (missing rare cancers!)
-❌ Performance metrics will be **misleading**
+ Model will predict **NV** for almost everything (easy 55% accuracy)
+ Minority classes (DF, VASC, SCC) will be **ignored**
+ **Dangerous** for medical diagnosis (missing rare cancers!)
+ Performance metrics will be **misleading**
 
 ### Example Without Balancing:
 ```
@@ -43,7 +43,7 @@ DF Recall: 0% ← Missed ALL rare cases!
 
 ---
 
-## ✅ Required Solutions (Must Use Multiple Techniques)
+##  Required Solutions (Must Use Multiple Techniques)
 
 ### 1. Weighted Cross-Entropy Loss (CRITICAL)
 
@@ -189,7 +189,7 @@ class BalancedBatchSampler(BatchSampler):
 
 ---
 
-## 📊 Recommended Configuration (Combined Approach)
+##  Recommended Configuration (Combined Approach)
 
 ### For Your Thesis Training:
 
@@ -256,7 +256,7 @@ VASC Recall: 68-73%
 
 ## Implementation Checklist
 
-### Phase 1: Data Preparation (DONE ✓)
+### Phase 1: Data Preparation (DONE )
 - [x] Analyze class distribution
 - [x] Calculate class weights
 - [x] Generate imbalance report
@@ -319,14 +319,14 @@ Per-Class Recall (Most Important):
 
 ## Common Mistakes to Avoid
 
-### ❌ DON'T:
+###  DON'T:
 1. Use accuracy as primary metric (misleading!)
 2. Ignore minority class performance
 3. Forget to stratify splits
 4. Use only one balancing technique
 5. Skip per-class analysis
 
-### ✅ DO:
+###  DO:
 1. Use balanced accuracy and per-class recall
 2. Report minority class metrics prominently
 3. Always stratify (80-20 split, 5-fold CV)
@@ -339,12 +339,12 @@ Per-Class Recall (Most Important):
 
 ```
 results/class_balance/
-├── isic2019_distribution.png         # Visualization
-├── isic2019_report.md                # Detailed report
-├── ham10000_distribution.png         # Visualization
-├── ham10000_report.md                # Detailed report
-├── combined_distribution.png         # Combined viz
-└── combined_report.md                # Combined report
+ isic2019_distribution.png         # Visualization
+ isic2019_report.md                # Detailed report
+ ham10000_distribution.png         # Visualization
+ ham10000_report.md                # Detailed report
+ combined_distribution.png         # Combined viz
+ combined_report.md                # Combined report
 ```
 
 ---
@@ -392,14 +392,14 @@ for epoch in range(num_epochs):
 ## Summary
 
 **Question:** Are classes balanced?
-**Answer:** 🔴 **NO - Extremely imbalanced (55:1 ratio)**
+**Answer:**  **NO - Extremely imbalanced (55:1 ratio)**
 
 **Action Required:**
-1. ✅ Use Focal Loss with class weights
-2. ✅ Use Weighted Random Sampling
-3. ✅ Ensure stratified splits
-4. ✅ Report balanced accuracy and per-class metrics
-5. ✅ Monitor minority class performance
+1.  Use Focal Loss with class weights
+2.  Use Weighted Random Sampling
+3.  Ensure stratified splits
+4.  Report balanced accuracy and per-class metrics
+5.  Monitor minority class performance
 
 **Expected Outcome:**
 - Balanced accuracy: 84-87% (vs. 55% without balancing)

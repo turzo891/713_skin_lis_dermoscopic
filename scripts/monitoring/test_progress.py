@@ -36,7 +36,7 @@ class ModelProgressChecker:
         trained_models = {}
 
         if not self.models_dir.exists():
-            print(f"⚠️  Models directory not found: {self.models_dir}")
+            print(f"  Models directory not found: {self.models_dir}")
             return trained_models
 
         # Look for model directories
@@ -157,7 +157,7 @@ class ModelProgressChecker:
             }
 
         except Exception as e:
-            print(f"❌ Error evaluating {model_name}: {str(e)}")
+            print(f" Error evaluating {model_name}: {str(e)}")
             return None
 
     def display_summary(self, trained_models):
@@ -250,10 +250,10 @@ class ModelProgressChecker:
         trained_models = self.find_trained_models()
 
         if not trained_models:
-            print("❌ No trained models found!")
+            print(" No trained models found!")
             return
 
-        print(f"\n📊 Found {len(trained_models)} trained model(s)")
+        print(f"\n Found {len(trained_models)} trained model(s)")
         self.display_summary(trained_models)
 
         if not quick:
@@ -324,7 +324,7 @@ def main():
             if results:
                 checker.display_detailed_results(args.model, results)
         else:
-            print(f"❌ Model '{args.model}' not found!")
+            print(f" Model '{args.model}' not found!")
             print(f"\nAvailable models: {', '.join(trained_models.keys())}")
     else:
         # Compare all models
@@ -345,7 +345,7 @@ def main():
 
     status_data = []
     for model_type in all_models:
-        status = '✅ Trained' if model_type in trained_types else '⏳ Pending'
+        status = ' Trained' if model_type in trained_types else '⏳ Pending'
         status_data.append({'Model Type': model_type, 'Status': status})
 
     df = pd.DataFrame(status_data)
@@ -353,9 +353,9 @@ def main():
 
     pending = [m for m in all_models if m not in trained_types]
     if pending:
-        print(f"\n📝 Models pending training: {', '.join(pending)}")
+        print(f"\n Models pending training: {', '.join(pending)}")
     else:
-        print("\n✨ All models trained!")
+        print("\n All models trained!")
 
 
 if __name__ == "__main__":

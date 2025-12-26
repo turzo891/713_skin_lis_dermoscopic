@@ -76,57 +76,57 @@ To deploy this in a real-world clinical setting, you would need:
 
 ```
 adv_pat/
-├── configs/              # Configuration files
-│   └── config.yaml       # Training and model configurations
-├── data/                 # Datasets
-│   ├── ISIC2019/        # ISIC 2019 dataset (25,331 images)
-│   │   ├── ISIC_2019_Training_Input/
-│   │   ├── ISIC_2019_Training_GroundTruth.csv
-│   │   └── ISIC_2019_Training_Metadata.csv
-│   └── HAM10000/        # Optional: HAM10000 for external validation
-├── src/                  # Core source code
-│   ├── data_loader.py   # Dataset loading and preprocessing
-│   ├── models.py        # Model architectures (CNN, ViT, Hybrid)
-│   ├── multimodal_dataloader.py  # Multi-modal dataset
-│   ├── train.py         # Training pipeline
-│   ├── evaluate.py      # Evaluation metrics and analysis
-│   ├── xai_methods.py   # Explainable AI implementations
-│   ├── visualize.py     # Visualization utilities
-│   ├── uncertainty.py   # Uncertainty quantification
-│   └── utils.py         # Helper functions
-├── scripts/              # Executable scripts
-│   ├── training/        # Training scripts
-│   │   ├── train_single_model.py
-│   │   ├── train_with_logging.py
-│   │   ├── train_kfold_cv.py
-│   │   └── start_training.sh
-│   ├── data/            # Data processing scripts
-│   │   ├── download_isic_alternative.py
-│   │   ├── validate_dataset.py
-│   │   ├── exploratory_data_analysis.py
-│   │   ├── advanced_visualizations.py
-│   │   └── data_enrichment.py
-│   ├── testing/         # Unit tests
-│   │   ├── test_dualpath.py
-│   │   ├── test_multimodal_fusion.py
-│   │   ├── test_hybrid_cnn_vit.py
-│   │   └── test_concept_bottleneck.py
-│   └── monitoring/      # Training monitoring
-│       ├── monitor_training.py
-│       ├── check_progress.sh
-│       └── watch_gpu.sh
-├── models/              # Saved model checkpoints
-├── results/             # Output results
-│   ├── eda/            # Exploratory data analysis figures
-│   ├── xai/            # XAI visualizations
-│   ├── metrics/        # Evaluation metrics
-│   └── figures/        # Publication-quality figures
-├── logs/                # Training logs
-├── notebooks/           # Jupyter notebooks for analysis
-├── requirements.txt     # Python dependencies
-├── README.md            # This file
-├── USER_MANUAL.md       # Comprehensive user manual
-└── SANITY_CHECK_REPORT.md  # System validation report
+ configs/              # Configuration files
+    config.yaml       # Training and model configurations
+ data/                 # Datasets
+    ISIC2019/        # ISIC 2019 dataset (25,331 images)
+       ISIC_2019_Training_Input/
+       ISIC_2019_Training_GroundTruth.csv
+       ISIC_2019_Training_Metadata.csv
+    HAM10000/        # Optional: HAM10000 for external validation
+ src/                  # Core source code
+    data_loader.py   # Dataset loading and preprocessing
+    models.py        # Model architectures (CNN, ViT, Hybrid)
+    multimodal_dataloader.py  # Multi-modal dataset
+    train.py         # Training pipeline
+    evaluate.py      # Evaluation metrics and analysis
+    xai_methods.py   # Explainable AI implementations
+    visualize.py     # Visualization utilities
+    uncertainty.py   # Uncertainty quantification
+    utils.py         # Helper functions
+ scripts/              # Executable scripts
+    training/        # Training scripts
+       train_single_model.py
+       train_with_logging.py
+       train_kfold_cv.py
+       start_training.sh
+    data/            # Data processing scripts
+       download_isic_alternative.py
+       validate_dataset.py
+       exploratory_data_analysis.py
+       advanced_visualizations.py
+       data_enrichment.py
+    testing/         # Unit tests
+       test_dualpath.py
+       test_multimodal_fusion.py
+       test_hybrid_cnn_vit.py
+       test_concept_bottleneck.py
+    monitoring/      # Training monitoring
+        monitor_training.py
+        check_progress.sh
+        watch_gpu.sh
+ models/              # Saved model checkpoints
+ results/             # Output results
+    eda/            # Exploratory data analysis figures
+    xai/            # XAI visualizations
+    metrics/        # Evaluation metrics
+    figures/        # Publication-quality figures
+ logs/                # Training logs
+ notebooks/           # Jupyter notebooks for analysis
+ requirements.txt     # Python dependencies
+ README.md            # This file
+ USER_MANUAL.md       # Comprehensive user manual
+ SANITY_CHECK_REPORT.md  # System validation report
 ```
 
 ---
@@ -203,13 +203,13 @@ After download, verify the structure:
 
 ```
 data/ISIC2019/
-├── ISIC_2019_Training_Input/
-│   └── ISIC_2019_Training_Input/
-│       ├── ISIC_0000000.jpg
-│       ├── ISIC_0000001.jpg
-│       └── ... (25,331 images)
-├── ISIC_2019_Training_GroundTruth.csv
-└── ISIC_2019_Training_Metadata.csv
+ ISIC_2019_Training_Input/
+    ISIC_2019_Training_Input/
+        ISIC_0000000.jpg
+        ISIC_0000001.jpg
+        ... (25,331 images)
+ ISIC_2019_Training_GroundTruth.csv
+ ISIC_2019_Training_Metadata.csv
 ```
 
 #### Validate Dataset
@@ -299,15 +299,15 @@ python3 train_with_logging.py \
 **Outputs:**
 ```
 models/efficientnet_YYYYMMDD_HHMMSS/
-├── best_model.pth              # Best model (lowest validation loss)
-├── last_model.pth              # Final epoch model
-├── checkpoint_epoch_10.pth     # Intermediate checkpoints
-├── final_results.json          # Performance metrics
-├── training_history.csv        # Epoch-by-epoch metrics
-└── metrics/
-    ├── confusion_matrix.png
-    ├── roc_curves.png
-    └── training_curves.png
+ best_model.pth              # Best model (lowest validation loss)
+ last_model.pth              # Final epoch model
+ checkpoint_epoch_10.pth     # Intermediate checkpoints
+ final_results.json          # Performance metrics
+ training_history.csv        # Epoch-by-epoch metrics
+ metrics/
+     confusion_matrix.png
+     roc_curves.png
+     training_curves.png
 ```
 
 ### K-Fold Cross-Validation

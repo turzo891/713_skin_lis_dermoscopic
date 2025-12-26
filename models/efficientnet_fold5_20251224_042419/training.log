@@ -1,0 +1,459 @@
+2025-12-24 04:24:19 - INFO - Logging initialized. Log file: models/efficientnet_fold5_20251224_042419/training.log
+2025-12-24 04:24:20 - INFO - ================================================================================
+2025-12-24 04:24:20 - INFO - OPTIMIZED TRAINING CONFIGURATION
+2025-12-24 04:24:20 - INFO - ================================================================================
+2025-12-24 04:24:20 - INFO - Model: efficientnet
+2025-12-24 04:24:20 - INFO - Dataset: Combined MILK10k + ISIC2019
+2025-12-24 04:24:20 - INFO - Fold: 5
+2025-12-24 04:24:20 - INFO - Batch size: 64
+2025-12-24 04:24:20 - INFO - Effective batch size: 64
+2025-12-24 04:24:20 - INFO - Epochs: 50
+2025-12-24 04:24:20 - INFO - Learning rate: 0.0001
+2025-12-24 04:24:20 - INFO - Workers: 8
+2025-12-24 04:24:20 - INFO - Mixed precision: True
+2025-12-24 04:24:20 - INFO - Gradient accumulation: 1
+2025-12-24 04:24:20 - INFO - Prefetch factor: 2
+2025-12-24 04:24:20 - INFO - Focal loss: True
+2025-12-24 04:24:20 - INFO - Skin tone sampling: True
+2025-12-24 04:24:20 - INFO - Device: cuda
+2025-12-24 04:24:20 - INFO - Output: models/efficientnet_fold5_20251224_042419
+2025-12-24 04:24:20 - INFO - ================================================================================
+2025-12-24 04:24:20 - INFO - 
+Creating data loaders...
+2025-12-24 04:24:21 - INFO - Train samples: 21937
+2025-12-24 04:24:21 - INFO - Val samples: 2437
+2025-12-24 04:24:21 - INFO - 
+Creating efficientnet model...
+2025-12-24 04:24:22 - INFO - 
+Starting training...
+
+2025-12-24 04:25:14 - INFO - 
+Epoch 1/50 - 52.39s
+2025-12-24 04:25:14 - INFO -   Train Loss: 1.0716, Train Acc: 0.3706
+2025-12-24 04:25:14 - INFO -   Val Loss: 0.6953
+2025-12-24 04:25:14 - INFO -   Val Accuracy: 0.3324
+2025-12-24 04:25:14 - INFO -   Val Balanced Acc: 0.3828
+2025-12-24 04:25:14 - INFO -   Val F1 (weighted): 0.3733
+2025-12-24 04:25:14 - INFO -   Val F1 (macro): 0.2634
+2025-12-24 04:25:14 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:25:14 - INFO -   LR: 0.000100
+2025-12-24 04:25:14 - INFO -   Saved best model (balanced_accuracy: 0.3828)
+2025-12-24 04:26:06 - INFO - 
+Epoch 2/50 - 51.28s
+2025-12-24 04:26:06 - INFO -   Train Loss: 0.5873, Train Acc: 0.5691
+2025-12-24 04:26:06 - INFO -   Val Loss: 0.5425
+2025-12-24 04:26:06 - INFO -   Val Accuracy: 0.4354
+2025-12-24 04:26:06 - INFO -   Val Balanced Acc: 0.4682
+2025-12-24 04:26:06 - INFO -   Val F1 (weighted): 0.4737
+2025-12-24 04:26:06 - INFO -   Val F1 (macro): 0.3501
+2025-12-24 04:26:06 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:26:06 - INFO -   LR: 0.000100
+2025-12-24 04:26:06 - INFO -   Saved best model (balanced_accuracy: 0.4682)
+2025-12-24 04:26:57 - INFO - 
+Epoch 3/50 - 50.63s
+2025-12-24 04:26:57 - INFO -   Train Loss: 0.4529, Train Acc: 0.6437
+2025-12-24 04:26:57 - INFO -   Val Loss: 0.4785
+2025-12-24 04:26:57 - INFO -   Val Accuracy: 0.4969
+2025-12-24 04:26:57 - INFO -   Val Balanced Acc: 0.4990
+2025-12-24 04:26:57 - INFO -   Val F1 (weighted): 0.5288
+2025-12-24 04:26:57 - INFO -   Val F1 (macro): 0.4010
+2025-12-24 04:26:57 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:26:57 - INFO -   LR: 0.000099
+2025-12-24 04:26:57 - INFO -   Saved best model (balanced_accuracy: 0.4990)
+2025-12-24 04:27:48 - INFO - 
+Epoch 4/50 - 50.99s
+2025-12-24 04:27:48 - INFO -   Train Loss: 0.3723, Train Acc: 0.6896
+2025-12-24 04:27:48 - INFO -   Val Loss: 0.4325
+2025-12-24 04:27:48 - INFO -   Val Accuracy: 0.5392
+2025-12-24 04:27:48 - INFO -   Val Balanced Acc: 0.5437
+2025-12-24 04:27:48 - INFO -   Val F1 (weighted): 0.5686
+2025-12-24 04:27:48 - INFO -   Val F1 (macro): 0.4437
+2025-12-24 04:27:48 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:27:48 - INFO -   LR: 0.000098
+2025-12-24 04:27:49 - INFO -   Saved best model (balanced_accuracy: 0.5437)
+2025-12-24 04:28:39 - INFO - 
+Epoch 5/50 - 50.48s
+2025-12-24 04:28:39 - INFO -   Train Loss: 0.3098, Train Acc: 0.7300
+2025-12-24 04:28:39 - INFO -   Val Loss: 0.4242
+2025-12-24 04:28:39 - INFO -   Val Accuracy: 0.5215
+2025-12-24 04:28:39 - INFO -   Val Balanced Acc: 0.5732
+2025-12-24 04:28:39 - INFO -   Val F1 (weighted): 0.5480
+2025-12-24 04:28:39 - INFO -   Val F1 (macro): 0.4522
+2025-12-24 04:28:39 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:28:39 - INFO -   LR: 0.000098
+2025-12-24 04:28:40 - INFO -   Saved best model (balanced_accuracy: 0.5732)
+2025-12-24 04:29:30 - INFO - 
+Epoch 6/50 - 50.44s
+2025-12-24 04:29:30 - INFO -   Train Loss: 0.2616, Train Acc: 0.7643
+2025-12-24 04:29:30 - INFO -   Val Loss: 0.3815
+2025-12-24 04:29:30 - INFO -   Val Accuracy: 0.5749
+2025-12-24 04:29:30 - INFO -   Val Balanced Acc: 0.5922
+2025-12-24 04:29:30 - INFO -   Val F1 (weighted): 0.5958
+2025-12-24 04:29:30 - INFO -   Val F1 (macro): 0.4961
+2025-12-24 04:29:30 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:29:30 - INFO -   LR: 0.000096
+2025-12-24 04:29:31 - INFO -   Saved best model (balanced_accuracy: 0.5922)
+2025-12-24 04:30:21 - INFO - 
+Epoch 7/50 - 50.27s
+2025-12-24 04:30:21 - INFO -   Train Loss: 0.2397, Train Acc: 0.7807
+2025-12-24 04:30:21 - INFO -   Val Loss: 0.3913
+2025-12-24 04:30:21 - INFO -   Val Accuracy: 0.5810
+2025-12-24 04:30:21 - INFO -   Val Balanced Acc: 0.6155
+2025-12-24 04:30:21 - INFO -   Val F1 (weighted): 0.6111
+2025-12-24 04:30:21 - INFO -   Val F1 (macro): 0.5123
+2025-12-24 04:30:21 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:30:21 - INFO -   LR: 0.000095
+2025-12-24 04:30:22 - INFO -   Saved best model (balanced_accuracy: 0.6155)
+2025-12-24 04:31:12 - INFO - 
+Epoch 8/50 - 50.14s
+2025-12-24 04:31:12 - INFO -   Train Loss: 0.2015, Train Acc: 0.8064
+2025-12-24 04:31:12 - INFO -   Val Loss: 0.3712
+2025-12-24 04:31:12 - INFO -   Val Accuracy: 0.5704
+2025-12-24 04:31:12 - INFO -   Val Balanced Acc: 0.6297
+2025-12-24 04:31:12 - INFO -   Val F1 (weighted): 0.5954
+2025-12-24 04:31:12 - INFO -   Val F1 (macro): 0.5325
+2025-12-24 04:31:12 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:31:12 - INFO -   LR: 0.000094
+2025-12-24 04:31:12 - INFO -   Saved best model (balanced_accuracy: 0.6297)
+2025-12-24 04:32:03 - INFO - 
+Epoch 9/50 - 50.78s
+2025-12-24 04:32:03 - INFO -   Train Loss: 0.1779, Train Acc: 0.8254
+2025-12-24 04:32:03 - INFO -   Val Loss: 0.3420
+2025-12-24 04:32:03 - INFO -   Val Accuracy: 0.5835
+2025-12-24 04:32:03 - INFO -   Val Balanced Acc: 0.6309
+2025-12-24 04:32:03 - INFO -   Val F1 (weighted): 0.6064
+2025-12-24 04:32:03 - INFO -   Val F1 (macro): 0.5420
+2025-12-24 04:32:03 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:32:03 - INFO -   LR: 0.000092
+2025-12-24 04:32:04 - INFO -   Saved best model (balanced_accuracy: 0.6309)
+2025-12-24 04:32:54 - INFO - 
+Epoch 10/50 - 50.05s
+2025-12-24 04:32:54 - INFO -   Train Loss: 0.1526, Train Acc: 0.8433
+2025-12-24 04:32:54 - INFO -   Val Loss: 0.3451
+2025-12-24 04:32:54 - INFO -   Val Accuracy: 0.6053
+2025-12-24 04:32:54 - INFO -   Val Balanced Acc: 0.6490
+2025-12-24 04:32:54 - INFO -   Val F1 (weighted): 0.6291
+2025-12-24 04:32:54 - INFO -   Val F1 (macro): 0.5799
+2025-12-24 04:32:54 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:32:54 - INFO -   LR: 0.000090
+2025-12-24 04:32:54 - INFO -   Saved best model (balanced_accuracy: 0.6490)
+2025-12-24 04:33:45 - INFO - 
+Epoch 11/50 - 50.93s
+2025-12-24 04:33:45 - INFO -   Train Loss: 0.1431, Train Acc: 0.8475
+2025-12-24 04:33:45 - INFO -   Val Loss: 0.3274
+2025-12-24 04:33:45 - INFO -   Val Accuracy: 0.6405
+2025-12-24 04:33:45 - INFO -   Val Balanced Acc: 0.6750
+2025-12-24 04:33:45 - INFO -   Val F1 (weighted): 0.6571
+2025-12-24 04:33:45 - INFO -   Val F1 (macro): 0.5938
+2025-12-24 04:33:45 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:33:45 - INFO -   LR: 0.000089
+2025-12-24 04:33:46 - INFO -   Saved best model (balanced_accuracy: 0.6750)
+2025-12-24 04:34:36 - INFO - 
+Epoch 12/50 - 50.32s
+2025-12-24 04:34:36 - INFO -   Train Loss: 0.1251, Train Acc: 0.8678
+2025-12-24 04:34:36 - INFO -   Val Loss: 0.3174
+2025-12-24 04:34:36 - INFO -   Val Accuracy: 0.6340
+2025-12-24 04:34:36 - INFO -   Val Balanced Acc: 0.6574
+2025-12-24 04:34:36 - INFO -   Val F1 (weighted): 0.6482
+2025-12-24 04:34:36 - INFO -   Val F1 (macro): 0.6104
+2025-12-24 04:34:36 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:34:36 - INFO -   LR: 0.000086
+2025-12-24 04:34:36 - INFO -   No improvement (patience: 1/10)
+2025-12-24 04:35:27 - INFO - 
+Epoch 13/50 - 50.72s
+2025-12-24 04:35:27 - INFO -   Train Loss: 0.1090, Train Acc: 0.8812
+2025-12-24 04:35:27 - INFO -   Val Loss: 0.3134
+2025-12-24 04:35:27 - INFO -   Val Accuracy: 0.6557
+2025-12-24 04:35:27 - INFO -   Val Balanced Acc: 0.6819
+2025-12-24 04:35:27 - INFO -   Val F1 (weighted): 0.6742
+2025-12-24 04:35:27 - INFO -   Val F1 (macro): 0.6264
+2025-12-24 04:35:27 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:35:27 - INFO -   LR: 0.000084
+2025-12-24 04:35:27 - INFO -   Saved best model (balanced_accuracy: 0.6819)
+2025-12-24 04:36:18 - INFO - 
+Epoch 14/50 - 51.06s
+2025-12-24 04:36:18 - INFO -   Train Loss: 0.1008, Train Acc: 0.8892
+2025-12-24 04:36:18 - INFO -   Val Loss: 0.3158
+2025-12-24 04:36:18 - INFO -   Val Accuracy: 0.6368
+2025-12-24 04:36:18 - INFO -   Val Balanced Acc: 0.6832
+2025-12-24 04:36:18 - INFO -   Val F1 (weighted): 0.6578
+2025-12-24 04:36:18 - INFO -   Val F1 (macro): 0.6146
+2025-12-24 04:36:18 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:36:18 - INFO -   LR: 0.000082
+2025-12-24 04:36:19 - INFO -   Saved best model (balanced_accuracy: 0.6832)
+2025-12-24 04:37:12 - INFO - 
+Epoch 15/50 - 52.61s
+2025-12-24 04:37:12 - INFO -   Train Loss: 0.0917, Train Acc: 0.8958
+2025-12-24 04:37:12 - INFO -   Val Loss: 0.3197
+2025-12-24 04:37:12 - INFO -   Val Accuracy: 0.6393
+2025-12-24 04:37:12 - INFO -   Val Balanced Acc: 0.6695
+2025-12-24 04:37:12 - INFO -   Val F1 (weighted): 0.6548
+2025-12-24 04:37:12 - INFO -   Val F1 (macro): 0.6220
+2025-12-24 04:37:12 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:37:12 - INFO -   LR: 0.000079
+2025-12-24 04:37:12 - INFO -   No improvement (patience: 1/10)
+2025-12-24 04:38:05 - INFO - 
+Epoch 16/50 - 52.93s
+2025-12-24 04:38:05 - INFO -   Train Loss: 0.0767, Train Acc: 0.9108
+2025-12-24 04:38:05 - INFO -   Val Loss: 0.3019
+2025-12-24 04:38:05 - INFO -   Val Accuracy: 0.6643
+2025-12-24 04:38:05 - INFO -   Val Balanced Acc: 0.6718
+2025-12-24 04:38:05 - INFO -   Val F1 (weighted): 0.6783
+2025-12-24 04:38:05 - INFO -   Val F1 (macro): 0.6371
+2025-12-24 04:38:05 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:38:05 - INFO -   LR: 0.000077
+2025-12-24 04:38:05 - INFO -   No improvement (patience: 2/10)
+2025-12-24 04:38:57 - INFO - 
+Epoch 17/50 - 52.98s
+2025-12-24 04:38:57 - INFO -   Train Loss: 0.0700, Train Acc: 0.9142
+2025-12-24 04:38:57 - INFO -   Val Loss: 0.3109
+2025-12-24 04:38:57 - INFO -   Val Accuracy: 0.6619
+2025-12-24 04:38:57 - INFO -   Val Balanced Acc: 0.6928
+2025-12-24 04:38:57 - INFO -   Val F1 (weighted): 0.6750
+2025-12-24 04:38:57 - INFO -   Val F1 (macro): 0.6403
+2025-12-24 04:38:57 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:38:57 - INFO -   LR: 0.000074
+2025-12-24 04:38:58 - INFO -   Saved best model (balanced_accuracy: 0.6928)
+2025-12-24 04:39:51 - INFO - 
+Epoch 18/50 - 52.60s
+2025-12-24 04:39:51 - INFO -   Train Loss: 0.0665, Train Acc: 0.9214
+2025-12-24 04:39:51 - INFO -   Val Loss: 0.3034
+2025-12-24 04:39:51 - INFO -   Val Accuracy: 0.6824
+2025-12-24 04:39:51 - INFO -   Val Balanced Acc: 0.6879
+2025-12-24 04:39:51 - INFO -   Val F1 (weighted): 0.6958
+2025-12-24 04:39:51 - INFO -   Val F1 (macro): 0.6417
+2025-12-24 04:39:51 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:39:51 - INFO -   LR: 0.000071
+2025-12-24 04:39:51 - INFO -   No improvement (patience: 1/10)
+2025-12-24 04:40:43 - INFO - 
+Epoch 19/50 - 52.48s
+2025-12-24 04:40:43 - INFO -   Train Loss: 0.0601, Train Acc: 0.9260
+2025-12-24 04:40:43 - INFO -   Val Loss: 0.2954
+2025-12-24 04:40:43 - INFO -   Val Accuracy: 0.6705
+2025-12-24 04:40:43 - INFO -   Val Balanced Acc: 0.6893
+2025-12-24 04:40:43 - INFO -   Val F1 (weighted): 0.6847
+2025-12-24 04:40:43 - INFO -   Val F1 (macro): 0.6478
+2025-12-24 04:40:43 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:40:43 - INFO -   LR: 0.000068
+2025-12-24 04:40:43 - INFO -   No improvement (patience: 2/10)
+2025-12-24 04:41:35 - INFO - 
+Epoch 20/50 - 52.34s
+2025-12-24 04:41:35 - INFO -   Train Loss: 0.0560, Train Acc: 0.9323
+2025-12-24 04:41:35 - INFO -   Val Loss: 0.3005
+2025-12-24 04:41:35 - INFO -   Val Accuracy: 0.6935
+2025-12-24 04:41:35 - INFO -   Val Balanced Acc: 0.6861
+2025-12-24 04:41:35 - INFO -   Val F1 (weighted): 0.7038
+2025-12-24 04:41:35 - INFO -   Val F1 (macro): 0.6473
+2025-12-24 04:41:35 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:41:35 - INFO -   LR: 0.000065
+2025-12-24 04:41:35 - INFO -   No improvement (patience: 3/10)
+2025-12-24 04:42:27 - INFO - 
+Epoch 21/50 - 52.00s
+2025-12-24 04:42:27 - INFO -   Train Loss: 0.0524, Train Acc: 0.9339
+2025-12-24 04:42:27 - INFO -   Val Loss: 0.2845
+2025-12-24 04:42:27 - INFO -   Val Accuracy: 0.6939
+2025-12-24 04:42:27 - INFO -   Val Balanced Acc: 0.6711
+2025-12-24 04:42:27 - INFO -   Val F1 (weighted): 0.7035
+2025-12-24 04:42:27 - INFO -   Val F1 (macro): 0.6451
+2025-12-24 04:42:27 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:42:27 - INFO -   LR: 0.000062
+2025-12-24 04:42:27 - INFO -   No improvement (patience: 4/10)
+2025-12-24 04:43:19 - INFO - 
+Epoch 22/50 - 52.00s
+2025-12-24 04:43:19 - INFO -   Train Loss: 0.0475, Train Acc: 0.9365
+2025-12-24 04:43:19 - INFO -   Val Loss: 0.2941
+2025-12-24 04:43:19 - INFO -   Val Accuracy: 0.6795
+2025-12-24 04:43:19 - INFO -   Val Balanced Acc: 0.6840
+2025-12-24 04:43:19 - INFO -   Val F1 (weighted): 0.6923
+2025-12-24 04:43:19 - INFO -   Val F1 (macro): 0.6517
+2025-12-24 04:43:19 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:43:19 - INFO -   LR: 0.000059
+2025-12-24 04:43:19 - INFO -   No improvement (patience: 5/10)
+2025-12-24 04:44:09 - INFO - 
+Epoch 23/50 - 49.63s
+2025-12-24 04:44:09 - INFO -   Train Loss: 0.0474, Train Acc: 0.9382
+2025-12-24 04:44:09 - INFO -   Val Loss: 0.3007
+2025-12-24 04:44:09 - INFO -   Val Accuracy: 0.6693
+2025-12-24 04:44:09 - INFO -   Val Balanced Acc: 0.6903
+2025-12-24 04:44:09 - INFO -   Val F1 (weighted): 0.6805
+2025-12-24 04:44:09 - INFO -   Val F1 (macro): 0.6460
+2025-12-24 04:44:09 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:44:09 - INFO -   LR: 0.000056
+2025-12-24 04:44:09 - INFO -   No improvement (patience: 6/10)
+2025-12-24 04:44:59 - INFO - 
+Epoch 24/50 - 50.11s
+2025-12-24 04:44:59 - INFO -   Train Loss: 0.0442, Train Acc: 0.9426
+2025-12-24 04:44:59 - INFO -   Val Loss: 0.2853
+2025-12-24 04:44:59 - INFO -   Val Accuracy: 0.7095
+2025-12-24 04:44:59 - INFO -   Val Balanced Acc: 0.7058
+2025-12-24 04:44:59 - INFO -   Val F1 (weighted): 0.7197
+2025-12-24 04:44:59 - INFO -   Val F1 (macro): 0.6655
+2025-12-24 04:44:59 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:44:59 - INFO -   LR: 0.000053
+2025-12-24 04:45:00 - INFO -   Saved best model (balanced_accuracy: 0.7058)
+2025-12-24 04:45:53 - INFO - 
+Epoch 25/50 - 53.02s
+2025-12-24 04:45:53 - INFO -   Train Loss: 0.0393, Train Acc: 0.9460
+2025-12-24 04:45:53 - INFO -   Val Loss: 0.2921
+2025-12-24 04:45:53 - INFO -   Val Accuracy: 0.6808
+2025-12-24 04:45:53 - INFO -   Val Balanced Acc: 0.6992
+2025-12-24 04:45:53 - INFO -   Val F1 (weighted): 0.6903
+2025-12-24 04:45:53 - INFO -   Val F1 (macro): 0.6592
+2025-12-24 04:45:53 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:45:53 - INFO -   LR: 0.000050
+2025-12-24 04:45:53 - INFO -   No improvement (patience: 1/10)
+2025-12-24 04:46:43 - INFO - 
+Epoch 26/50 - 50.33s
+2025-12-24 04:46:43 - INFO -   Train Loss: 0.0360, Train Acc: 0.9499
+2025-12-24 04:46:43 - INFO -   Val Loss: 0.2959
+2025-12-24 04:46:43 - INFO -   Val Accuracy: 0.6844
+2025-12-24 04:46:43 - INFO -   Val Balanced Acc: 0.7121
+2025-12-24 04:46:43 - INFO -   Val F1 (weighted): 0.6965
+2025-12-24 04:46:43 - INFO -   Val F1 (macro): 0.6643
+2025-12-24 04:46:43 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:46:43 - INFO -   LR: 0.000047
+2025-12-24 04:46:44 - INFO -   Saved best model (balanced_accuracy: 0.7121)
+2025-12-24 04:47:34 - INFO - 
+Epoch 27/50 - 50.67s
+2025-12-24 04:47:34 - INFO -   Train Loss: 0.0351, Train Acc: 0.9506
+2025-12-24 04:47:34 - INFO -   Val Loss: 0.2895
+2025-12-24 04:47:34 - INFO -   Val Accuracy: 0.6881
+2025-12-24 04:47:34 - INFO -   Val Balanced Acc: 0.7082
+2025-12-24 04:47:34 - INFO -   Val F1 (weighted): 0.6994
+2025-12-24 04:47:34 - INFO -   Val F1 (macro): 0.6656
+2025-12-24 04:47:34 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:47:34 - INFO -   LR: 0.000044
+2025-12-24 04:47:34 - INFO -   No improvement (patience: 1/10)
+2025-12-24 04:48:23 - INFO - 
+Epoch 28/50 - 49.13s
+2025-12-24 04:48:23 - INFO -   Train Loss: 0.0338, Train Acc: 0.9527
+2025-12-24 04:48:23 - INFO -   Val Loss: 0.2872
+2025-12-24 04:48:23 - INFO -   Val Accuracy: 0.7050
+2025-12-24 04:48:23 - INFO -   Val Balanced Acc: 0.7214
+2025-12-24 04:48:23 - INFO -   Val F1 (weighted): 0.7153
+2025-12-24 04:48:23 - INFO -   Val F1 (macro): 0.6763
+2025-12-24 04:48:23 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:48:23 - INFO -   LR: 0.000041
+2025-12-24 04:48:24 - INFO -   Saved best model (balanced_accuracy: 0.7214)
+2025-12-24 04:49:12 - INFO - 
+Epoch 29/50 - 47.88s
+2025-12-24 04:49:12 - INFO -   Train Loss: 0.0305, Train Acc: 0.9562
+2025-12-24 04:49:12 - INFO -   Val Loss: 0.2882
+2025-12-24 04:49:12 - INFO -   Val Accuracy: 0.7124
+2025-12-24 04:49:12 - INFO -   Val Balanced Acc: 0.7126
+2025-12-24 04:49:12 - INFO -   Val F1 (weighted): 0.7211
+2025-12-24 04:49:12 - INFO -   Val F1 (macro): 0.6792
+2025-12-24 04:49:12 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:49:12 - INFO -   LR: 0.000038
+2025-12-24 04:49:12 - INFO -   No improvement (patience: 1/10)
+2025-12-24 04:49:59 - INFO - 
+Epoch 30/50 - 47.27s
+2025-12-24 04:49:59 - INFO -   Train Loss: 0.0293, Train Acc: 0.9572
+2025-12-24 04:49:59 - INFO -   Val Loss: 0.2932
+2025-12-24 04:49:59 - INFO -   Val Accuracy: 0.6996
+2025-12-24 04:49:59 - INFO -   Val Balanced Acc: 0.7114
+2025-12-24 04:49:59 - INFO -   Val F1 (weighted): 0.7089
+2025-12-24 04:49:59 - INFO -   Val F1 (macro): 0.6819
+2025-12-24 04:49:59 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:49:59 - INFO -   LR: 0.000035
+2025-12-24 04:49:59 - INFO -   No improvement (patience: 2/10)
+2025-12-24 04:50:46 - INFO - 
+Epoch 31/50 - 47.26s
+2025-12-24 04:50:46 - INFO -   Train Loss: 0.0291, Train Acc: 0.9597
+2025-12-24 04:50:46 - INFO -   Val Loss: 0.2991
+2025-12-24 04:50:46 - INFO -   Val Accuracy: 0.7058
+2025-12-24 04:50:46 - INFO -   Val Balanced Acc: 0.7099
+2025-12-24 04:50:46 - INFO -   Val F1 (weighted): 0.7137
+2025-12-24 04:50:46 - INFO -   Val F1 (macro): 0.6774
+2025-12-24 04:50:46 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:50:46 - INFO -   LR: 0.000032
+2025-12-24 04:50:46 - INFO -   No improvement (patience: 3/10)
+2025-12-24 04:51:33 - INFO - 
+Epoch 32/50 - 46.87s
+2025-12-24 04:51:33 - INFO -   Train Loss: 0.0280, Train Acc: 0.9607
+2025-12-24 04:51:33 - INFO -   Val Loss: 0.2918
+2025-12-24 04:51:33 - INFO -   Val Accuracy: 0.6922
+2025-12-24 04:51:33 - INFO -   Val Balanced Acc: 0.7020
+2025-12-24 04:51:33 - INFO -   Val F1 (weighted): 0.7023
+2025-12-24 04:51:33 - INFO -   Val F1 (macro): 0.6731
+2025-12-24 04:51:33 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:51:33 - INFO -   LR: 0.000029
+2025-12-24 04:51:33 - INFO -   No improvement (patience: 4/10)
+2025-12-24 04:52:20 - INFO - 
+Epoch 33/50 - 46.95s
+2025-12-24 04:52:20 - INFO -   Train Loss: 0.0263, Train Acc: 0.9616
+2025-12-24 04:52:20 - INFO -   Val Loss: 0.3057
+2025-12-24 04:52:20 - INFO -   Val Accuracy: 0.6844
+2025-12-24 04:52:20 - INFO -   Val Balanced Acc: 0.6993
+2025-12-24 04:52:20 - INFO -   Val F1 (weighted): 0.6935
+2025-12-24 04:52:20 - INFO -   Val F1 (macro): 0.6706
+2025-12-24 04:52:20 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:52:20 - INFO -   LR: 0.000026
+2025-12-24 04:52:20 - INFO -   No improvement (patience: 5/10)
+2025-12-24 04:53:07 - INFO - 
+Epoch 34/50 - 46.99s
+2025-12-24 04:53:07 - INFO -   Train Loss: 0.0253, Train Acc: 0.9635
+2025-12-24 04:53:07 - INFO -   Val Loss: 0.2926
+2025-12-24 04:53:07 - INFO -   Val Accuracy: 0.7054
+2025-12-24 04:53:07 - INFO -   Val Balanced Acc: 0.6935
+2025-12-24 04:53:07 - INFO -   Val F1 (weighted): 0.7134
+2025-12-24 04:53:07 - INFO -   Val F1 (macro): 0.6750
+2025-12-24 04:53:07 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:53:07 - INFO -   LR: 0.000023
+2025-12-24 04:53:07 - INFO -   No improvement (patience: 6/10)
+2025-12-24 04:53:54 - INFO - 
+Epoch 35/50 - 46.81s
+2025-12-24 04:53:54 - INFO -   Train Loss: 0.0233, Train Acc: 0.9649
+2025-12-24 04:53:54 - INFO -   Val Loss: 0.3087
+2025-12-24 04:53:54 - INFO -   Val Accuracy: 0.6890
+2025-12-24 04:53:54 - INFO -   Val Balanced Acc: 0.6896
+2025-12-24 04:53:54 - INFO -   Val F1 (weighted): 0.6979
+2025-12-24 04:53:54 - INFO -   Val F1 (macro): 0.6707
+2025-12-24 04:53:54 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:53:54 - INFO -   LR: 0.000021
+2025-12-24 04:53:54 - INFO -   No improvement (patience: 7/10)
+2025-12-24 04:54:41 - INFO - 
+Epoch 36/50 - 47.25s
+2025-12-24 04:54:41 - INFO -   Train Loss: 0.0242, Train Acc: 0.9655
+2025-12-24 04:54:41 - INFO -   Val Loss: 0.2979
+2025-12-24 04:54:41 - INFO -   Val Accuracy: 0.7226
+2025-12-24 04:54:41 - INFO -   Val Balanced Acc: 0.7091
+2025-12-24 04:54:41 - INFO -   Val F1 (weighted): 0.7292
+2025-12-24 04:54:41 - INFO -   Val F1 (macro): 0.6924
+2025-12-24 04:54:41 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:54:41 - INFO -   LR: 0.000018
+2025-12-24 04:54:41 - INFO -   No improvement (patience: 8/10)
+2025-12-24 04:55:28 - INFO - 
+Epoch 37/50 - 46.96s
+2025-12-24 04:55:28 - INFO -   Train Loss: 0.0240, Train Acc: 0.9654
+2025-12-24 04:55:28 - INFO -   Val Loss: 0.3002
+2025-12-24 04:55:28 - INFO -   Val Accuracy: 0.7185
+2025-12-24 04:55:28 - INFO -   Val Balanced Acc: 0.7152
+2025-12-24 04:55:28 - INFO -   Val F1 (weighted): 0.7260
+2025-12-24 04:55:28 - INFO -   Val F1 (macro): 0.6936
+2025-12-24 04:55:28 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:55:28 - INFO -   LR: 0.000016
+2025-12-24 04:55:28 - INFO -   No improvement (patience: 9/10)
+2025-12-24 04:56:15 - INFO - 
+Epoch 38/50 - 46.90s
+2025-12-24 04:56:15 - INFO -   Train Loss: 0.0252, Train Acc: 0.9621
+2025-12-24 04:56:15 - INFO -   Val Loss: 0.2957
+2025-12-24 04:56:15 - INFO -   Val Accuracy: 0.7124
+2025-12-24 04:56:15 - INFO -   Val Balanced Acc: 0.7199
+2025-12-24 04:56:15 - INFO -   Val F1 (weighted): 0.7209
+2025-12-24 04:56:15 - INFO -   Val F1 (macro): 0.6887
+2025-12-24 04:56:15 - INFO -   Val AUC (macro): 0.0000
+2025-12-24 04:56:15 - INFO -   LR: 0.000014
+2025-12-24 04:56:15 - INFO -   No improvement (patience: 10/10)
+2025-12-24 04:56:15 - INFO - 
+Early stopping at epoch 38
+2025-12-24 04:56:15 - INFO - 
+================================================================================
+2025-12-24 04:56:15 - INFO - TRAINING COMPLETE
+2025-12-24 04:56:15 - INFO - ================================================================================
+2025-12-24 04:56:15 - INFO - Total time: 31.89 minutes
+2025-12-24 04:56:15 - INFO - Best balanced_accuracy: 0.7214 (epoch 28)
+2025-12-24 04:56:15 - INFO - Average time per epoch: 50.36 seconds
+2025-12-24 04:56:15 - INFO - Model saved to: models/efficientnet_fold5_20251224_042419
+2025-12-24 04:56:15 - INFO - 
+Results saved to: models/efficientnet_fold5_20251224_042419/final_results.json

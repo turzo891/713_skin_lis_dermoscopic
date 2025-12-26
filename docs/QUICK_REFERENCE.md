@@ -71,19 +71,19 @@ python3 scripts/training/train_optimized.py \
 ## What Each Component Does
 
 ```
-┌──────────────────────────────────────────────────────────┐
-│                   TRAINING PIPELINE                       │
-├──────────────────────────────────────────────────────────┤
-│                                                           │
-│  CPU                 RAM                 GPU              │
-│  ───                 ───                 ───              │
-│  Loads images   →   Buffers data    →   Matrix ops       │
-│  Augments       →   Pins memory     →   Gradients        │
-│  Preprocesses   →   Prefetch        →   Updates          │
-│  8 workers      →   3 batches       →   FP16 compute     │
-│                                                           │
-│  Working in parallel to keep GPU fed with data           │
-└──────────────────────────────────────────────────────────┘
+
+                   TRAINING PIPELINE                       
+
+                                                           
+  CPU                 RAM                 GPU              
+                                                  
+  Loads images   →   Buffers data    →   Matrix ops       
+  Augments       →   Pins memory     →   Gradients        
+  Preprocesses   →   Prefetch        →   Updates          
+  8 workers      →   3 batches       →   FP16 compute     
+                                                           
+  Working in parallel to keep GPU fed with data           
+
 ```
 
 ---

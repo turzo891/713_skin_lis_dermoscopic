@@ -5,20 +5,20 @@
 When you train a model, all three components work simultaneously:
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    TRAINING PIPELINE                         │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  CPU                    RAM                    GPU          │
-│  ───                    ───                    ───          │
-│                                                              │
-│  • Load images     ←→  • Store dataset    →   • Forward     │
-│  • Preprocess      ←→  • Buffer batches   →   • Backward    │
-│  • Augmentation    ←→  • Cache data       →   • Update      │
-│  • Metrics calc    ←→  • Temp storage     ←   • Compute     │
-│  • Logging         ←   • Model params     ←→  • Train       │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+                    TRAINING PIPELINE                         
+
+                                                              
+  CPU                    RAM                    GPU          
+                                                    
+                                                              
+  • Load images     ←→  • Store dataset    →   • Forward     
+  • Preprocess      ←→  • Buffer batches   →   • Backward    
+  • Augmentation    ←→  • Cache data       →   • Update      
+  • Metrics calc    ←→  • Temp storage     ←   • Compute     
+  • Logging         ←   • Model params     ←→  • Train       
+                                                              
+
 ```
 
 ## How Each Component is Currently Used
@@ -73,10 +73,10 @@ When you train a model, all three components work simultaneously:
 
 ```
 Time allocation during one training step:
-┌──────────────────────────────────────────────────┐
-│ GPU Training:    ████████░░░░░░░░░░░░░░░  (40%)  │
-│ Data Loading:    ██████████████████████  (60%)   │  ← BOTTLENECK!
-└──────────────────────────────────────────────────┘
+
+ GPU Training:      (40%)  
+ Data Loading:      (60%)     ← BOTTLENECK!
+
 ```
 
 **Why?** GPU sits idle while CPU loads and preprocesses data.
@@ -294,7 +294,7 @@ python3 train_optimized.py
 
 ```
 Component      Size        Speed       Cost/GB
-─────────────────────────────────────────────────
+
 CPU Cache      32 MB       1 TB/s      Expensive
 RAM            32 GB       50 GB/s     Moderate
 GPU VRAM       24 GB       1000 GB/s   Very expensive
@@ -330,10 +330,10 @@ Based on RTX 3090 (24 GB) and ~32 GB RAM:
 
 I checked your code - these are already implemented:
 
-✓ Pin memory in DataLoader
-✓ Multiple workers (num_workers=4, can increase to 8)
-✓ Efficient augmentation pipeline
-✓ Async GPU transfers
+ Pin memory in DataLoader
+ Multiple workers (num_workers=4, can increase to 8)
+ Efficient augmentation pipeline
+ Async GPU transfers
 
 **Not yet implemented:**
 - Mixed precision training (big win!)
@@ -367,19 +367,19 @@ python3 scripts/training/train_with_logging.py --batch_size 64 --use_amp
 
 **Before optimization:**
 ```
-CPU: ████░░░░░░ (40% utilized)
-RAM: ███░░░░░░░ (30% utilized)
-GPU: ██████░░░░ (60% utilized)
-──────────────────────────────────
+CPU:  (40% utilized)
+RAM:  (30% utilized)
+GPU:  (60% utilized)
+
 Training speed: ~2.5 images/sec
 ```
 
 **After optimization:**
 ```
-CPU: ████████░░ (80% utilized)  ← More workers
-RAM: ██████░░░░ (60% utilized)  ← Pinned memory + prefetch
-GPU: ██████████ (100% utilized) ← Mixed precision
-──────────────────────────────────
+CPU:  (80% utilized)  ← More workers
+RAM:  (60% utilized)  ← Pinned memory + prefetch
+GPU:  (100% utilized) ← Mixed precision
+
 Training speed: ~7 images/sec (3x faster!)
 ```
 

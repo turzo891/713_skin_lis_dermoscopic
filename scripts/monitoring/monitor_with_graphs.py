@@ -245,40 +245,40 @@ class LiveMonitor:
 
         # Update summary text
         summary = f"""
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         CURRENT SYSTEM STATUS                                │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  CPU:        {stats['cpu_percent']:5.1f}%  (avg: {cpu_avg:5.1f}%)                                       │
-│  RAM:        {stats['ram_percent']:5.1f}%  ({stats['ram_used_gb']:5.2f} GB / {stats['ram_total_gb']:5.2f} GB)  (avg: {ram_avg:5.1f}%)      │
-│  GPU Compute: {stats['gpu_util']:5.1f}%  (avg: {gpu_util_avg:5.1f}%)                                    │
-│  GPU Memory:  {stats['gpu_mem_percent']:5.1f}%  ({stats['gpu_mem_used_gb']:5.2f} GB / {stats['gpu_mem_total_gb']:5.2f} GB)  (avg: {gpu_mem_avg:5.1f}%)   │
-│                                                                              │
-│  Time:       {datetime.now().strftime('%H:%M:%S')}                                                    │
-│  Uptime:     {int(elapsed // 60)}m {int(elapsed % 60)}s                                                │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+
+                         CURRENT SYSTEM STATUS                                
+
+                                                                              
+  CPU:        {stats['cpu_percent']:5.1f}%  (avg: {cpu_avg:5.1f}%)                                       
+  RAM:        {stats['ram_percent']:5.1f}%  ({stats['ram_used_gb']:5.2f} GB / {stats['ram_total_gb']:5.2f} GB)  (avg: {ram_avg:5.1f}%)      
+  GPU Compute: {stats['gpu_util']:5.1f}%  (avg: {gpu_util_avg:5.1f}%)                                    
+  GPU Memory:  {stats['gpu_mem_percent']:5.1f}%  ({stats['gpu_mem_used_gb']:5.2f} GB / {stats['gpu_mem_total_gb']:5.2f} GB)  (avg: {gpu_mem_avg:5.1f}%)   
+                                                                              
+  Time:       {datetime.now().strftime('%H:%M:%S')}                                                    
+  Uptime:     {int(elapsed // 60)}m {int(elapsed % 60)}s                                                
+                                                                              
+
         """
 
         # Add performance analysis
         if gpu_util_avg > 90:
-            summary += "\n✓ GPU is fully utilized - Excellent!"
+            summary += "\n GPU is fully utilized - Excellent!"
         elif gpu_util_avg > 70:
-            summary += "\n✓ GPU utilization is good"
+            summary += "\n GPU utilization is good"
         elif gpu_util_avg > 40:
-            summary += "\n⚠ GPU underutilized - Increase batch_size or num_workers"
+            summary += "\n GPU underutilized - Increase batch_size or num_workers"
         else:
-            summary += "\n⚠ GPU barely used - Check if training is running"
+            summary += "\n GPU barely used - Check if training is running"
 
         if cpu_avg > 90:
-            summary += "\n⚠ CPU bottleneck - Reduce num_workers"
+            summary += "\n CPU bottleneck - Reduce num_workers"
         elif cpu_avg > 60:
-            summary += "\n✓ CPU utilization is good"
+            summary += "\n CPU utilization is good"
 
         if ram_avg > 90:
-            summary += "\n⚠ RAM critical - Reduce batch_size or prefetch_factor"
+            summary += "\n RAM critical - Reduce batch_size or prefetch_factor"
         elif ram_avg > 70:
-            summary += "\n⚠ RAM high - Monitor closely"
+            summary += "\n RAM high - Monitor closely"
 
         self.summary_text.set_text(summary)
 

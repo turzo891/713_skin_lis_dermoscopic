@@ -300,13 +300,13 @@ After successful download and extraction:
 
 ```
 data/ISIC2019/
-├── ISIC_2019_Training_Input/
-│   └── ISIC_2019_Training_Input/
-│       ├── ISIC_0000000.jpg   # Image 1
-│       ├── ISIC_0000001.jpg   # Image 2
-│       └── ...                # 25,331 images total
-├── ISIC_2019_Training_GroundTruth.csv   # Labels (MEL, NV, BCC, etc.)
-└── ISIC_2019_Training_Metadata.csv      # Age, sex, location
+ ISIC_2019_Training_Input/
+    ISIC_2019_Training_Input/
+        ISIC_0000000.jpg   # Image 1
+        ISIC_0000001.jpg   # Image 2
+        ...                # 25,331 images total
+ ISIC_2019_Training_GroundTruth.csv   # Labels (MEL, NV, BCC, etc.)
+ ISIC_2019_Training_Metadata.csv      # Age, sex, location
 ```
 
 ---
@@ -564,18 +564,18 @@ python3 train_with_logging.py \
 
 ```
 models/efficientnet_20251222_143052/
-├── best_model.pth              # Best model (lowest val loss)
-├── last_model.pth              # Final epoch model
-├── checkpoint_epoch_05.pth     # Checkpoint at epoch 5
-├── checkpoint_epoch_10.pth     # Checkpoint at epoch 10
-├── ...
-├── final_results.json          # Final metrics
-├── training_history.csv        # Epoch-by-epoch metrics
-├── config.yaml                 # Training configuration
-└── metrics/
-    ├── confusion_matrix.png    # Confusion matrix
-    ├── roc_curves.png          # ROC curves
-    └── training_curves.png     # Loss/accuracy curves
+ best_model.pth              # Best model (lowest val loss)
+ last_model.pth              # Final epoch model
+ checkpoint_epoch_05.pth     # Checkpoint at epoch 5
+ checkpoint_epoch_10.pth     # Checkpoint at epoch 10
+ ...
+ final_results.json          # Final metrics
+ training_history.csv        # Epoch-by-epoch metrics
+ config.yaml                 # Training configuration
+ metrics/
+     confusion_matrix.png    # Confusion matrix
+     roc_curves.png          # ROC curves
+     training_curves.png     # Loss/accuracy curves
 ```
 
 ### Training All Models (Batch Mode)
@@ -689,12 +689,12 @@ python3 train_kfold_cv.py \
 
 ```
 kfold_results/
-├── fold_1_best_model.pth
-├── fold_2_best_model.pth
-├── ...
-├── fold_10_best_model.pth
-├── kfold_cv_results.json        # Aggregate results
-└── kfold_summary.csv            # Per-fold details
+ fold_1_best_model.pth
+ fold_2_best_model.pth
+ ...
+ fold_10_best_model.pth
+ kfold_cv_results.json        # Aggregate results
+ kfold_summary.csv            # Per-fold details
 ```
 
 **Results format:**
@@ -927,18 +927,18 @@ python3 xai_methods.py \
 
 ```
 results/xai/
-├── gradcam/
-│   ├── MEL_sample_001.png
-│   ├── MEL_sample_002.png
-│   └── ...
-├── integrated_gradients/
-│   ├── BCC_sample_001.png
-│   └── ...
-├── shap/
-│   ├── feature_importance.png
-│   └── ...
-└── summary/
-    └── xai_comparison.png
+ gradcam/
+    MEL_sample_001.png
+    MEL_sample_002.png
+    ...
+ integrated_gradients/
+    BCC_sample_001.png
+    ...
+ shap/
+    feature_importance.png
+    ...
+ summary/
+     xai_comparison.png
 ```
 
 ---

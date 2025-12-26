@@ -1,6 +1,6 @@
 # Final Validation Strategy - Thesis Implementation
 
-## ✅ Confirmed Strategy (Practical & Publication-Ready)
+##  Confirmed Strategy (Practical & Publication-Ready)
 
 **Date:** 2025-12-23
 **Status:** APPROVED - Ready for Implementation
@@ -14,53 +14,53 @@
 
 ```
 Combined Dataset: ISIC2019 + HAM10000
-├── ISIC2019: 25,331 images (8 classes)
-├── HAM10000: 10,015 images (7 classes)
-├── After deduplication: ~33,000-35,000 images
-└── Stratified by condition (maintain class balance)
+ ISIC2019: 25,331 images (8 classes)
+ HAM10000: 10,015 images (7 classes)
+ After deduplication: ~33,000-35,000 images
+ Stratified by condition (maintain class balance)
 
 Split Strategy:
-├── 80% Training + Validation (~28,000 images)
-│   ├── Use for 5-fold CV during development
-│   ├── Hyperparameter tuning
-│   └── Model selection
-│
-└── 20% Test Set (~7,000 images)
-    ├── Completely held out (never used in training)
-    ├── Final evaluation only
-    └── Report these metrics in thesis
+ 80% Training + Validation (~28,000 images)
+    Use for 5-fold CV during development
+    Hyperparameter tuning
+    Model selection
+
+ 20% Test Set (~7,000 images)
+     Completely held out (never used in training)
+     Final evaluation only
+     Report these metrics in thesis
 
 External Validation:
-└── ISIC2020 (33,126 images)
-    ├── Completely independent dataset
-    ├── Tests true generalization
-    └── Optional but recommended for robustness
+ ISIC2020 (33,126 images)
+     Completely independent dataset
+     Tests true generalization
+     Optional but recommended for robustness
 ```
 
 ---
 
 ## 2. Why This Strategy? (Rationale)
 
-### ✅ Why 80-20 Split?
+###  Why 80-20 Split?
 - **Standard in deep learning** (common in papers)
 - Sufficient training data (28,000+ images)
 - Large enough test set (7,000+ images) for reliable statistics
 - Computationally efficient
 
-### ✅ Why 5-Fold CV (not 30-fold)?
+###  Why 5-Fold CV (not 30-fold)?
 - **Standard for deep learning** (most papers use 5 or 10)
 - Each fold: ~22,400 train / ~5,600 val (good ratio)
 - 5 models × 5 folds = 25 runs (feasible in 2-3 days)
 - Diminishing returns beyond 5-10 folds for large datasets
 - **30-fold would take weeks!**
 
-### ✅ Why Held-Out 20% Test Set?
+###  Why Held-Out 20% Test Set?
 - **Never seen during training or tuning**
 - Provides unbiased final performance estimate
 - Standard practice for thesis/publication
 - Prevents overfitting to validation set
 
-### ✅ Why Combine ISIC2019 + HAM10000?
+###  Why Combine ISIC2019 + HAM10000?
 - More diverse training data
 - Different imaging devices → better generalization
 - Addresses class imbalance
@@ -74,9 +74,9 @@ External Validation:
 
 **Step 1.1: Download and Verify Datasets**
 ```bash
-# ISIC2019: ✅ Already downloaded (25,331 images)
-# HAM10000: ✅ Already downloaded (10,015 images)
-# ISIC2020: ❌ Need to download (33,126 images)
+# ISIC2019:  Already downloaded (25,331 images)
+# HAM10000:  Already downloaded (10,015 images)
+# ISIC2020:  Need to download (33,126 images)
 
 cd scripts/data
 python3 download_isic2020.py  # ~2-3 hours
@@ -154,13 +154,13 @@ done
 **Output per model:**
 ```
 models/resnet50_5fold_cv/
-├── fold_1_best_model.pth
-├── fold_2_best_model.pth
-├── fold_3_best_model.pth
-├── fold_4_best_model.pth
-├── fold_5_best_model.pth
-├── cv_results.json          # Mean ± Std across folds
-└── training_curves.png
+ fold_1_best_model.pth
+ fold_2_best_model.pth
+ fold_3_best_model.pth
+ fold_4_best_model.pth
+ fold_5_best_model.pth
+ cv_results.json          # Mean ± Std across folds
+ training_curves.png
 ```
 
 #### Step 2.2: Final Training on Full 80%
@@ -440,20 +440,20 @@ Table 3: XAI Method Comparison
 
 ### Minimum for Thesis Completion
 
-✅ 5 models trained with 5-fold CV
-✅ Final models trained on full 80%
-✅ Evaluation on held-out 20% test set
-✅ Statistical comparison of models
-✅ XAI explanations generated (5 methods × 5 models)
-✅ Quantitative XAI evaluation
-✅ Thesis figures and tables ready
+ 5 models trained with 5-fold CV
+ Final models trained on full 80%
+ Evaluation on held-out 20% test set
+ Statistical comparison of models
+ XAI explanations generated (5 methods × 5 models)
+ Quantitative XAI evaluation
+ Thesis figures and tables ready
 
 ### Bonus (If Time Permits)
 
-✅ External validation on ISIC2020
-✅ Subgroup analysis (age, sex, lesion type)
-✅ Ensemble methods
-✅ Calibration analysis
+ External validation on ISIC2020
+ Subgroup analysis (age, sex, lesion type)
+ Ensemble methods
+ Calibration analysis
 
 ---
 
@@ -461,13 +461,13 @@ Table 3: XAI Method Comparison
 
 **Ready to implement? Here's the action plan:**
 
-1. ✅ **Approve this strategy** (confirmed)
-2. 📥 **Download ISIC2020** (~2-3 hours)
-3. 🔧 **Create data preparation scripts** (Priority 1, items 1-4)
-4. 🎯 **Create training scripts** (Priority 1, items 5-6)
-5. 🚀 **Start training** (5-fold CV for all models)
-6. 📊 **Evaluation and XAI** (Priority 1, items 7-8, then Priority 2)
-7. 📝 **Generate thesis materials** (Priority 3)
+1.  **Approve this strategy** (confirmed)
+2.  **Download ISIC2020** (~2-3 hours)
+3.  **Create data preparation scripts** (Priority 1, items 1-4)
+4.  **Create training scripts** (Priority 1, items 5-6)
+5.  **Start training** (5-fold CV for all models)
+6.  **Evaluation and XAI** (Priority 1, items 7-8, then Priority 2)
+7.  **Generate thesis materials** (Priority 3)
 
 **Total timeline: 1-2 weeks from start to thesis-ready results**
 

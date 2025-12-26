@@ -35,7 +35,7 @@ print(f"Expected shape: ({batch_size}, {4 * 16})")
 assert concept_features.shape == (batch_size, 4 * 16)
 print(f"Concept probs: {concept_probs}")
 assert concept_probs is None, "Should be None without supervision"
-print("✓ Standalone concept bottleneck works")
+print(" Standalone concept bottleneck works")
 
 # Test 2: ConceptBottleneck with supervision
 print("\n[Test 2] Concept Bottleneck with Supervision")
@@ -56,7 +56,7 @@ print(f"Concept probs shape: {concept_probs_sup.shape}")
 print(f"Concept probs (sample): {concept_probs_sup[0]}")
 assert concept_probs_sup is not None
 assert concept_probs_sup.shape == (batch_size, 4)
-print("✓ Concept bottleneck with supervision works")
+print(" Concept bottleneck with supervision works")
 
 # Test 3: Get concept activations
 print("\n[Test 3] Concept Activations (ABCD)")
@@ -72,7 +72,7 @@ for concept_name, activation in activations.items():
     print(f"  {concept_name}: {activation.shape} - Sample: {activation[0].item():.4f}")
     assert activation.shape == (batch_size,)
 
-print("✓ Concept activations work correctly")
+print(" Concept activations work correctly")
 
 # Test 4: MultiModalFusionNet without concept bottleneck
 print("\n[Test 4] Multi-Modal Fusion without Concept Bottleneck")
@@ -97,7 +97,7 @@ print(f"Output shape: {output_no_cb.shape}")
 assert output_no_cb.shape == (4, 8)
 total_no_cb, _ = count_parameters(model_no_cb)
 print(f"Parameters (no concept): {total_no_cb/1e6:.1f}M")
-print("✓ Multi-modal fusion without concept bottleneck works")
+print(" Multi-modal fusion without concept bottleneck works")
 
 # Test 5: MultiModalFusionNet WITH concept bottleneck
 print("\n[Test 5] Multi-Modal Fusion WITH Concept Bottleneck")
@@ -121,7 +121,7 @@ assert output_with_cb.shape == (4, 8)
 total_with_cb, _ = count_parameters(model_with_cb)
 print(f"Parameters (with concept): {total_with_cb/1e6:.1f}M")
 print(f"Additional params: {(total_with_cb - total_no_cb)/1e3:.1f}K (+{(total_with_cb - total_no_cb)/total_no_cb*100:.1f}%)")
-print("✓ Multi-modal fusion WITH concept bottleneck works")
+print(" Multi-modal fusion WITH concept bottleneck works")
 
 # Test 6: Concept supervision enabled
 print("\n[Test 6] Multi-Modal Fusion with Concept Supervision")
@@ -145,7 +145,7 @@ print(f"Stored concept probs shape: {model_with_cb_sup.concept_probs.shape}")
 print(f"Concept probs (sample): {model_with_cb_sup.concept_probs[0]}")
 assert model_with_cb_sup.concept_probs is not None
 assert model_with_cb_sup.concept_probs.shape == (4, 4)  # [B, num_concepts]
-print("✓ Concept supervision works correctly")
+print(" Concept supervision works correctly")
 
 # Test 7: Get concept activations from full model
 print("\n[Test 7] Get ABCD Concept Activations from Full Model")
@@ -159,7 +159,7 @@ for concept_name, activation in activations_full.items():
     print(f"  {concept_name}: {activation.shape} - Mean: {activation.mean().item():.4f}, Std: {activation.std().item():.4f}")
     assert activation.shape == (4,)  # [B]
 
-print("✓ Full model concept activations work")
+print(" Full model concept activations work")
 
 # Test 8: Gradient flow with concept bottleneck
 print("\n[Test 8] Gradient Flow with Concept Bottleneck")
@@ -176,7 +176,7 @@ loss.backward()
 has_gradients = any(p.grad is not None for p in model_with_cb.parameters() if p.requires_grad)
 print(f"  Gradients computed: {has_gradients}")
 assert has_gradients
-print("✓ Gradient flow successful with concept bottleneck")
+print(" Gradient flow successful with concept bottleneck")
 
 # Test 9: Model summary comparison
 print("\n[Test 9] Model Size Comparison")
@@ -212,10 +212,10 @@ for name, use_cb, use_sup in configs:
 
     print(f"{name:<30} {total/1e6:>8.2f}M      {overhead:>6.2f}%")
 
-print("\n✓ Concept bottleneck adds minimal parameters (<1%)")
+print("\n Concept bottleneck adds minimal parameters (<1%)")
 
 print("\n" + "="*80)
-print("✓ ALL TESTS PASSED - Concept Bottleneck Layer is working!")
+print(" ALL TESTS PASSED - Concept Bottleneck Layer is working!")
 print("="*80)
 
 # Summary
@@ -245,11 +245,11 @@ ABCD Concepts (Dermatology Rule):
 4. Diameter: Size and differential structures
 
 Benefits:
-✓ Interpretability: See which ABCD features are detected
-✓ Clinical alignment: Features dermatologists use
-✓ Debugging: Identify if model relies on wrong concepts
-✓ Intervention: Manually correct concept predictions if needed
-✓ Minimal overhead: <1% parameter increase
+ Interpretability: See which ABCD features are detected
+ Clinical alignment: Features dermatologists use
+ Debugging: Identify if model relies on wrong concepts
+ Intervention: Manually correct concept predictions if needed
+ Minimal overhead: <1% parameter increase
 
 Integration:
 - Can be added to any Multi-Modal Fusion model
