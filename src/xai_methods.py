@@ -88,7 +88,7 @@ class GradCAMPlusPlus:
         cam = torch.sum(weights.view(b, k, 1, 1) * activations, dim=1, keepdim=True)
         cam = F.relu(cam)
         cam = F.interpolate(cam, size=input_tensor.shape[2:], mode='bilinear', align_corners=False)
-        cam = cam.squeeze().cpu().numpy()
+        cam = cam.squeeze().detach().cpu().numpy()
 
         # Normalize
         cam = (cam - cam.min()) / (cam.max() - cam.min() + 1e-8)

@@ -1,0 +1,413 @@
+2025-12-28 06:11:41 - INFO - Logging initialized. Log file: models/swin_fold6_20251228_061141/training.log
+2025-12-28 06:11:41 - INFO - ================================================================================
+2025-12-28 06:11:41 - INFO - OPTIMIZED TRAINING CONFIGURATION
+2025-12-28 06:11:41 - INFO - ================================================================================
+2025-12-28 06:11:41 - INFO - Model: swin
+2025-12-28 06:11:41 - INFO - Dataset: Combined MILK10k + ISIC2019
+2025-12-28 06:11:41 - INFO - Fold: 6
+2025-12-28 06:11:41 - INFO - Batch size: 16
+2025-12-28 06:11:41 - INFO - Effective batch size: 16
+2025-12-28 06:11:41 - INFO - Epochs: 50
+2025-12-28 06:11:41 - INFO - Learning rate: 0.0001
+2025-12-28 06:11:41 - INFO - Workers: 8
+2025-12-28 06:11:41 - INFO - Mixed precision: True
+2025-12-28 06:11:41 - INFO - Gradient accumulation: 1
+2025-12-28 06:11:41 - INFO - Prefetch factor: 2
+2025-12-28 06:11:41 - INFO - Focal loss: True
+2025-12-28 06:11:41 - INFO - Skin tone sampling: True
+2025-12-28 06:11:41 - INFO - Device: cuda
+2025-12-28 06:11:41 - INFO - Output: models/swin_fold6_20251228_061141
+2025-12-28 06:11:41 - INFO - ================================================================================
+2025-12-28 06:11:41 - INFO - 
+Creating data loaders...
+2025-12-28 06:11:42 - INFO - Train samples: 21937
+2025-12-28 06:11:42 - INFO - Val samples: 2437
+2025-12-28 06:11:42 - INFO - 
+Creating swin model...
+2025-12-28 06:11:44 - INFO - 
+Starting training...
+
+2025-12-28 06:17:05 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 06:17:05 - INFO - 
+Epoch 1/50 - 320.69s
+2025-12-28 06:17:05 - INFO -   Train Loss: 0.4038, Train Acc: 0.6644
+2025-12-28 06:17:05 - INFO -   Val Loss: 0.4245
+2025-12-28 06:17:05 - INFO -   Val Accuracy: 0.4908
+2025-12-28 06:17:05 - INFO -   Val Balanced Acc: 0.6461
+2025-12-28 06:17:05 - INFO -   Val F1 (weighted): 0.5341
+2025-12-28 06:17:05 - INFO -   Val F1 (macro): 0.5051
+2025-12-28 06:17:05 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 06:17:05 - INFO -   LR: 0.000100
+2025-12-28 06:17:07 - INFO -   Saved best model (balanced_accuracy: 0.6461)
+2025-12-28 06:22:25 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 06:22:25 - INFO - 
+Epoch 2/50 - 318.57s
+2025-12-28 06:22:25 - INFO -   Train Loss: 0.2051, Train Acc: 0.8008
+2025-12-28 06:22:25 - INFO -   Val Loss: 0.3227
+2025-12-28 06:22:25 - INFO -   Val Accuracy: 0.6274
+2025-12-28 06:22:25 - INFO -   Val Balanced Acc: 0.6853
+2025-12-28 06:22:25 - INFO -   Val F1 (weighted): 0.6550
+2025-12-28 06:22:25 - INFO -   Val F1 (macro): 0.6098
+2025-12-28 06:22:25 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 06:22:25 - INFO -   LR: 0.000100
+2025-12-28 06:22:28 - INFO -   Saved best model (balanced_accuracy: 0.6853)
+2025-12-28 06:27:41 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 06:27:41 - INFO - 
+Epoch 3/50 - 312.80s
+2025-12-28 06:27:41 - INFO -   Train Loss: 0.1645, Train Acc: 0.8321
+2025-12-28 06:27:41 - INFO -   Val Loss: 0.3354
+2025-12-28 06:27:41 - INFO -   Val Accuracy: 0.5864
+2025-12-28 06:27:41 - INFO -   Val Balanced Acc: 0.7023
+2025-12-28 06:27:41 - INFO -   Val F1 (weighted): 0.6078
+2025-12-28 06:27:41 - INFO -   Val F1 (macro): 0.5608
+2025-12-28 06:27:41 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 06:27:41 - INFO -   LR: 0.000099
+2025-12-28 06:27:44 - INFO -   Saved best model (balanced_accuracy: 0.7023)
+2025-12-28 06:32:56 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 06:32:56 - INFO - 
+Epoch 4/50 - 312.22s
+2025-12-28 06:32:56 - INFO -   Train Loss: 0.1344, Train Acc: 0.8604
+2025-12-28 06:32:56 - INFO -   Val Loss: 0.3080
+2025-12-28 06:32:56 - INFO -   Val Accuracy: 0.6582
+2025-12-28 06:32:56 - INFO -   Val Balanced Acc: 0.7196
+2025-12-28 06:32:56 - INFO -   Val F1 (weighted): 0.6841
+2025-12-28 06:32:56 - INFO -   Val F1 (macro): 0.6407
+2025-12-28 06:32:56 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 06:32:56 - INFO -   LR: 0.000098
+2025-12-28 06:32:58 - INFO -   Saved best model (balanced_accuracy: 0.7196)
+2025-12-28 06:38:11 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 06:38:11 - INFO - 
+Epoch 5/50 - 312.38s
+2025-12-28 06:38:11 - INFO -   Train Loss: 0.1172, Train Acc: 0.8694
+2025-12-28 06:38:11 - INFO -   Val Loss: 0.3127
+2025-12-28 06:38:11 - INFO -   Val Accuracy: 0.5761
+2025-12-28 06:38:11 - INFO -   Val Balanced Acc: 0.6963
+2025-12-28 06:38:11 - INFO -   Val F1 (weighted): 0.5930
+2025-12-28 06:38:11 - INFO -   Val F1 (macro): 0.5464
+2025-12-28 06:38:11 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 06:38:11 - INFO -   LR: 0.000098
+2025-12-28 06:38:11 - INFO -   No improvement (patience: 1/10)
+2025-12-28 06:43:23 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 06:43:23 - INFO - 
+Epoch 6/50 - 312.48s
+2025-12-28 06:43:23 - INFO -   Train Loss: 0.0992, Train Acc: 0.8855
+2025-12-28 06:43:23 - INFO -   Val Loss: 0.2553
+2025-12-28 06:43:23 - INFO -   Val Accuracy: 0.6442
+2025-12-28 06:43:23 - INFO -   Val Balanced Acc: 0.7009
+2025-12-28 06:43:23 - INFO -   Val F1 (weighted): 0.6564
+2025-12-28 06:43:23 - INFO -   Val F1 (macro): 0.6624
+2025-12-28 06:43:23 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 06:43:23 - INFO -   LR: 0.000096
+2025-12-28 06:43:23 - INFO -   No improvement (patience: 2/10)
+2025-12-28 06:48:35 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 06:48:35 - INFO - 
+Epoch 7/50 - 312.05s
+2025-12-28 06:48:35 - INFO -   Train Loss: 0.0905, Train Acc: 0.8934
+2025-12-28 06:48:35 - INFO -   Val Loss: 0.2745
+2025-12-28 06:48:35 - INFO -   Val Accuracy: 0.6611
+2025-12-28 06:48:35 - INFO -   Val Balanced Acc: 0.7351
+2025-12-28 06:48:35 - INFO -   Val F1 (weighted): 0.6850
+2025-12-28 06:48:35 - INFO -   Val F1 (macro): 0.6510
+2025-12-28 06:48:35 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 06:48:35 - INFO -   LR: 0.000095
+2025-12-28 06:48:37 - INFO -   Saved best model (balanced_accuracy: 0.7351)
+2025-12-28 06:53:49 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 06:53:49 - INFO - 
+Epoch 8/50 - 312.01s
+2025-12-28 06:53:49 - INFO -   Train Loss: 0.0768, Train Acc: 0.9052
+2025-12-28 06:53:49 - INFO -   Val Loss: 0.2940
+2025-12-28 06:53:49 - INFO -   Val Accuracy: 0.6295
+2025-12-28 06:53:49 - INFO -   Val Balanced Acc: 0.7266
+2025-12-28 06:53:49 - INFO -   Val F1 (weighted): 0.6491
+2025-12-28 06:53:49 - INFO -   Val F1 (macro): 0.6456
+2025-12-28 06:53:49 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 06:53:49 - INFO -   LR: 0.000094
+2025-12-28 06:53:49 - INFO -   No improvement (patience: 1/10)
+2025-12-28 06:58:59 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 06:58:59 - INFO - 
+Epoch 9/50 - 309.73s
+2025-12-28 06:58:59 - INFO -   Train Loss: 0.0746, Train Acc: 0.9080
+2025-12-28 06:58:59 - INFO -   Val Loss: 0.2490
+2025-12-28 06:58:59 - INFO -   Val Accuracy: 0.6976
+2025-12-28 06:58:59 - INFO -   Val Balanced Acc: 0.7302
+2025-12-28 06:58:59 - INFO -   Val F1 (weighted): 0.7054
+2025-12-28 06:58:59 - INFO -   Val F1 (macro): 0.6581
+2025-12-28 06:58:59 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 06:58:59 - INFO -   LR: 0.000092
+2025-12-28 06:58:59 - INFO -   No improvement (patience: 2/10)
+2025-12-28 07:04:09 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:04:09 - INFO - 
+Epoch 10/50 - 309.58s
+2025-12-28 07:04:09 - INFO -   Train Loss: 0.0690, Train Acc: 0.9175
+2025-12-28 07:04:09 - INFO -   Val Loss: 0.3148
+2025-12-28 07:04:09 - INFO -   Val Accuracy: 0.6262
+2025-12-28 07:04:09 - INFO -   Val Balanced Acc: 0.7313
+2025-12-28 07:04:09 - INFO -   Val F1 (weighted): 0.6488
+2025-12-28 07:04:09 - INFO -   Val F1 (macro): 0.6253
+2025-12-28 07:04:09 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:04:09 - INFO -   LR: 0.000090
+2025-12-28 07:04:09 - INFO -   No improvement (patience: 3/10)
+2025-12-28 07:09:18 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:09:18 - INFO - 
+Epoch 11/50 - 309.65s
+2025-12-28 07:09:18 - INFO -   Train Loss: 0.0642, Train Acc: 0.9184
+2025-12-28 07:09:18 - INFO -   Val Loss: 0.2400
+2025-12-28 07:09:18 - INFO -   Val Accuracy: 0.7267
+2025-12-28 07:09:18 - INFO -   Val Balanced Acc: 0.7546
+2025-12-28 07:09:18 - INFO -   Val F1 (weighted): 0.7346
+2025-12-28 07:09:18 - INFO -   Val F1 (macro): 0.6972
+2025-12-28 07:09:18 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:09:18 - INFO -   LR: 0.000089
+2025-12-28 07:09:21 - INFO -   Saved best model (balanced_accuracy: 0.7546)
+2025-12-28 07:14:31 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:14:31 - INFO - 
+Epoch 12/50 - 309.81s
+2025-12-28 07:14:31 - INFO -   Train Loss: 0.0579, Train Acc: 0.9269
+2025-12-28 07:14:31 - INFO -   Val Loss: 0.2629
+2025-12-28 07:14:31 - INFO -   Val Accuracy: 0.6434
+2025-12-28 07:14:31 - INFO -   Val Balanced Acc: 0.7268
+2025-12-28 07:14:31 - INFO -   Val F1 (weighted): 0.6624
+2025-12-28 07:14:31 - INFO -   Val F1 (macro): 0.6530
+2025-12-28 07:14:31 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:14:31 - INFO -   LR: 0.000086
+2025-12-28 07:14:31 - INFO -   No improvement (patience: 1/10)
+2025-12-28 07:19:40 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:19:40 - INFO - 
+Epoch 13/50 - 309.56s
+2025-12-28 07:19:40 - INFO -   Train Loss: 0.0518, Train Acc: 0.9337
+2025-12-28 07:19:40 - INFO -   Val Loss: 0.2605
+2025-12-28 07:19:40 - INFO -   Val Accuracy: 0.7173
+2025-12-28 07:19:40 - INFO -   Val Balanced Acc: 0.7450
+2025-12-28 07:19:40 - INFO -   Val F1 (weighted): 0.7248
+2025-12-28 07:19:40 - INFO -   Val F1 (macro): 0.6479
+2025-12-28 07:19:40 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:19:40 - INFO -   LR: 0.000084
+2025-12-28 07:19:40 - INFO -   No improvement (patience: 2/10)
+2025-12-28 07:24:50 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:24:50 - INFO - 
+Epoch 14/50 - 309.83s
+2025-12-28 07:24:50 - INFO -   Train Loss: 0.0524, Train Acc: 0.9344
+2025-12-28 07:24:50 - INFO -   Val Loss: 0.2362
+2025-12-28 07:24:50 - INFO -   Val Accuracy: 0.7776
+2025-12-28 07:24:50 - INFO -   Val Balanced Acc: 0.7538
+2025-12-28 07:24:50 - INFO -   Val F1 (weighted): 0.7783
+2025-12-28 07:24:50 - INFO -   Val F1 (macro): 0.7184
+2025-12-28 07:24:50 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:24:50 - INFO -   LR: 0.000082
+2025-12-28 07:24:50 - INFO -   No improvement (patience: 3/10)
+2025-12-28 07:30:00 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:30:00 - INFO - 
+Epoch 15/50 - 309.69s
+2025-12-28 07:30:00 - INFO -   Train Loss: 0.0449, Train Acc: 0.9428
+2025-12-28 07:30:00 - INFO -   Val Loss: 0.2298
+2025-12-28 07:30:00 - INFO -   Val Accuracy: 0.7095
+2025-12-28 07:30:00 - INFO -   Val Balanced Acc: 0.7690
+2025-12-28 07:30:00 - INFO -   Val F1 (weighted): 0.7186
+2025-12-28 07:30:00 - INFO -   Val F1 (macro): 0.7243
+2025-12-28 07:30:00 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:30:00 - INFO -   LR: 0.000079
+2025-12-28 07:30:02 - INFO -   Saved best model (balanced_accuracy: 0.7690)
+2025-12-28 07:35:12 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:35:12 - INFO - 
+Epoch 16/50 - 309.79s
+2025-12-28 07:35:12 - INFO -   Train Loss: 0.0436, Train Acc: 0.9458
+2025-12-28 07:35:12 - INFO -   Val Loss: 0.2811
+2025-12-28 07:35:12 - INFO -   Val Accuracy: 0.7009
+2025-12-28 07:35:12 - INFO -   Val Balanced Acc: 0.7619
+2025-12-28 07:35:12 - INFO -   Val F1 (weighted): 0.7131
+2025-12-28 07:35:12 - INFO -   Val F1 (macro): 0.6851
+2025-12-28 07:35:12 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:35:12 - INFO -   LR: 0.000077
+2025-12-28 07:35:12 - INFO -   No improvement (patience: 1/10)
+2025-12-28 07:40:22 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:40:22 - INFO - 
+Epoch 17/50 - 309.97s
+2025-12-28 07:40:22 - INFO -   Train Loss: 0.0379, Train Acc: 0.9494
+2025-12-28 07:40:22 - INFO -   Val Loss: 0.2307
+2025-12-28 07:40:22 - INFO -   Val Accuracy: 0.6898
+2025-12-28 07:40:22 - INFO -   Val Balanced Acc: 0.7625
+2025-12-28 07:40:22 - INFO -   Val F1 (weighted): 0.6981
+2025-12-28 07:40:22 - INFO -   Val F1 (macro): 0.6888
+2025-12-28 07:40:22 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:40:22 - INFO -   LR: 0.000074
+2025-12-28 07:40:22 - INFO -   No improvement (patience: 2/10)
+2025-12-28 07:45:32 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:45:32 - INFO - 
+Epoch 18/50 - 309.76s
+2025-12-28 07:45:32 - INFO -   Train Loss: 0.0367, Train Acc: 0.9499
+2025-12-28 07:45:32 - INFO -   Val Loss: 0.2490
+2025-12-28 07:45:32 - INFO -   Val Accuracy: 0.6943
+2025-12-28 07:45:32 - INFO -   Val Balanced Acc: 0.7665
+2025-12-28 07:45:32 - INFO -   Val F1 (weighted): 0.7066
+2025-12-28 07:45:32 - INFO -   Val F1 (macro): 0.7007
+2025-12-28 07:45:32 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:45:32 - INFO -   LR: 0.000071
+2025-12-28 07:45:32 - INFO -   No improvement (patience: 3/10)
+2025-12-28 07:50:41 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:50:41 - INFO - 
+Epoch 19/50 - 309.67s
+2025-12-28 07:50:41 - INFO -   Train Loss: 0.0337, Train Acc: 0.9527
+2025-12-28 07:50:41 - INFO -   Val Loss: 0.2831
+2025-12-28 07:50:41 - INFO -   Val Accuracy: 0.6988
+2025-12-28 07:50:41 - INFO -   Val Balanced Acc: 0.7526
+2025-12-28 07:50:41 - INFO -   Val F1 (weighted): 0.7189
+2025-12-28 07:50:41 - INFO -   Val F1 (macro): 0.6908
+2025-12-28 07:50:41 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:50:41 - INFO -   LR: 0.000068
+2025-12-28 07:50:41 - INFO -   No improvement (patience: 4/10)
+2025-12-28 07:55:51 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 07:55:51 - INFO - 
+Epoch 20/50 - 309.28s
+2025-12-28 07:55:51 - INFO -   Train Loss: 0.0307, Train Acc: 0.9577
+2025-12-28 07:55:51 - INFO -   Val Loss: 0.2191
+2025-12-28 07:55:51 - INFO -   Val Accuracy: 0.7435
+2025-12-28 07:55:51 - INFO -   Val Balanced Acc: 0.7720
+2025-12-28 07:55:51 - INFO -   Val F1 (weighted): 0.7538
+2025-12-28 07:55:51 - INFO -   Val F1 (macro): 0.7504
+2025-12-28 07:55:51 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 07:55:51 - INFO -   LR: 0.000065
+2025-12-28 07:55:53 - INFO -   Saved best model (balanced_accuracy: 0.7720)
+2025-12-28 08:01:03 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:01:03 - INFO - 
+Epoch 21/50 - 309.57s
+2025-12-28 08:01:03 - INFO -   Train Loss: 0.0283, Train Acc: 0.9597
+2025-12-28 08:01:03 - INFO -   Val Loss: 0.2141
+2025-12-28 08:01:03 - INFO -   Val Accuracy: 0.7444
+2025-12-28 08:01:03 - INFO -   Val Balanced Acc: 0.7925
+2025-12-28 08:01:03 - INFO -   Val F1 (weighted): 0.7526
+2025-12-28 08:01:03 - INFO -   Val F1 (macro): 0.7328
+2025-12-28 08:01:03 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:01:03 - INFO -   LR: 0.000062
+2025-12-28 08:01:05 - INFO -   Saved best model (balanced_accuracy: 0.7925)
+2025-12-28 08:06:15 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:06:15 - INFO - 
+Epoch 22/50 - 309.85s
+2025-12-28 08:06:15 - INFO -   Train Loss: 0.0254, Train Acc: 0.9623
+2025-12-28 08:06:15 - INFO -   Val Loss: 0.2720
+2025-12-28 08:06:15 - INFO -   Val Accuracy: 0.7292
+2025-12-28 08:06:15 - INFO -   Val Balanced Acc: 0.7495
+2025-12-28 08:06:15 - INFO -   Val F1 (weighted): 0.7376
+2025-12-28 08:06:15 - INFO -   Val F1 (macro): 0.7064
+2025-12-28 08:06:15 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:06:15 - INFO -   LR: 0.000059
+2025-12-28 08:06:15 - INFO -   No improvement (patience: 1/10)
+2025-12-28 08:11:24 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:11:24 - INFO - 
+Epoch 23/50 - 309.10s
+2025-12-28 08:11:24 - INFO -   Train Loss: 0.0247, Train Acc: 0.9644
+2025-12-28 08:11:24 - INFO -   Val Loss: 0.2355
+2025-12-28 08:11:24 - INFO -   Val Accuracy: 0.7017
+2025-12-28 08:11:24 - INFO -   Val Balanced Acc: 0.7846
+2025-12-28 08:11:24 - INFO -   Val F1 (weighted): 0.7116
+2025-12-28 08:11:24 - INFO -   Val F1 (macro): 0.7359
+2025-12-28 08:11:24 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:11:24 - INFO -   LR: 0.000056
+2025-12-28 08:11:24 - INFO -   No improvement (patience: 2/10)
+2025-12-28 08:16:33 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:16:33 - INFO - 
+Epoch 24/50 - 309.20s
+2025-12-28 08:16:33 - INFO -   Train Loss: 0.0203, Train Acc: 0.9678
+2025-12-28 08:16:33 - INFO -   Val Loss: 0.2233
+2025-12-28 08:16:33 - INFO -   Val Accuracy: 0.7325
+2025-12-28 08:16:33 - INFO -   Val Balanced Acc: 0.7739
+2025-12-28 08:16:33 - INFO -   Val F1 (weighted): 0.7385
+2025-12-28 08:16:33 - INFO -   Val F1 (macro): 0.7288
+2025-12-28 08:16:33 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:16:33 - INFO -   LR: 0.000053
+2025-12-28 08:16:33 - INFO -   No improvement (patience: 3/10)
+2025-12-28 08:21:42 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:21:42 - INFO - 
+Epoch 25/50 - 309.06s
+2025-12-28 08:21:42 - INFO -   Train Loss: 0.0206, Train Acc: 0.9698
+2025-12-28 08:21:42 - INFO -   Val Loss: 0.2341
+2025-12-28 08:21:42 - INFO -   Val Accuracy: 0.7620
+2025-12-28 08:21:42 - INFO -   Val Balanced Acc: 0.7604
+2025-12-28 08:21:42 - INFO -   Val F1 (weighted): 0.7687
+2025-12-28 08:21:42 - INFO -   Val F1 (macro): 0.7265
+2025-12-28 08:21:42 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:21:42 - INFO -   LR: 0.000050
+2025-12-28 08:21:42 - INFO -   No improvement (patience: 4/10)
+2025-12-28 08:26:51 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:26:51 - INFO - 
+Epoch 26/50 - 309.26s
+2025-12-28 08:26:51 - INFO -   Train Loss: 0.0186, Train Acc: 0.9714
+2025-12-28 08:26:51 - INFO -   Val Loss: 0.2138
+2025-12-28 08:26:51 - INFO -   Val Accuracy: 0.7493
+2025-12-28 08:26:51 - INFO -   Val Balanced Acc: 0.7868
+2025-12-28 08:26:51 - INFO -   Val F1 (weighted): 0.7577
+2025-12-28 08:26:51 - INFO -   Val F1 (macro): 0.7522
+2025-12-28 08:26:51 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:26:51 - INFO -   LR: 0.000047
+2025-12-28 08:26:51 - INFO -   No improvement (patience: 5/10)
+2025-12-28 08:32:00 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:32:00 - INFO - 
+Epoch 27/50 - 309.20s
+2025-12-28 08:32:00 - INFO -   Train Loss: 0.0148, Train Acc: 0.9750
+2025-12-28 08:32:00 - INFO -   Val Loss: 0.2370
+2025-12-28 08:32:00 - INFO -   Val Accuracy: 0.7509
+2025-12-28 08:32:00 - INFO -   Val Balanced Acc: 0.7830
+2025-12-28 08:32:00 - INFO -   Val F1 (weighted): 0.7571
+2025-12-28 08:32:00 - INFO -   Val F1 (macro): 0.7649
+2025-12-28 08:32:00 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:32:00 - INFO -   LR: 0.000044
+2025-12-28 08:32:00 - INFO -   No improvement (patience: 6/10)
+2025-12-28 08:37:09 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:37:09 - INFO - 
+Epoch 28/50 - 309.12s
+2025-12-28 08:37:09 - INFO -   Train Loss: 0.0162, Train Acc: 0.9748
+2025-12-28 08:37:09 - INFO -   Val Loss: 0.2098
+2025-12-28 08:37:09 - INFO -   Val Accuracy: 0.7316
+2025-12-28 08:37:09 - INFO -   Val Balanced Acc: 0.7776
+2025-12-28 08:37:09 - INFO -   Val F1 (weighted): 0.7385
+2025-12-28 08:37:09 - INFO -   Val F1 (macro): 0.7378
+2025-12-28 08:37:09 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:37:09 - INFO -   LR: 0.000041
+2025-12-28 08:37:09 - INFO -   No improvement (patience: 7/10)
+2025-12-28 08:42:18 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:42:18 - INFO - 
+Epoch 29/50 - 309.00s
+2025-12-28 08:42:18 - INFO -   Train Loss: 0.0136, Train Acc: 0.9770
+2025-12-28 08:42:18 - INFO -   Val Loss: 0.2190
+2025-12-28 08:42:18 - INFO -   Val Accuracy: 0.7698
+2025-12-28 08:42:18 - INFO -   Val Balanced Acc: 0.7788
+2025-12-28 08:42:18 - INFO -   Val F1 (weighted): 0.7762
+2025-12-28 08:42:18 - INFO -   Val F1 (macro): 0.7621
+2025-12-28 08:42:18 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:42:18 - INFO -   LR: 0.000038
+2025-12-28 08:42:18 - INFO -   No improvement (patience: 8/10)
+2025-12-28 08:47:27 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:47:27 - INFO - 
+Epoch 30/50 - 308.84s
+2025-12-28 08:47:27 - INFO -   Train Loss: 0.0121, Train Acc: 0.9796
+2025-12-28 08:47:27 - INFO -   Val Loss: 0.2119
+2025-12-28 08:47:27 - INFO -   Val Accuracy: 0.7230
+2025-12-28 08:47:27 - INFO -   Val Balanced Acc: 0.7673
+2025-12-28 08:47:27 - INFO -   Val F1 (weighted): 0.7345
+2025-12-28 08:47:27 - INFO -   Val F1 (macro): 0.7240
+2025-12-28 08:47:27 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:47:27 - INFO -   LR: 0.000035
+2025-12-28 08:47:27 - INFO -   No improvement (patience: 9/10)
+2025-12-28 08:52:36 - WARNING - AUC calculation failed: Target scores need to be probabilities for multiclass roc_auc, i.e. they should sum up to 1.0 over classes
+2025-12-28 08:52:36 - INFO - 
+Epoch 31/50 - 308.94s
+2025-12-28 08:52:36 - INFO -   Train Loss: 0.0104, Train Acc: 0.9813
+2025-12-28 08:52:36 - INFO -   Val Loss: 0.2180
+2025-12-28 08:52:36 - INFO -   Val Accuracy: 0.7866
+2025-12-28 08:52:36 - INFO -   Val Balanced Acc: 0.7900
+2025-12-28 08:52:36 - INFO -   Val F1 (weighted): 0.7912
+2025-12-28 08:52:36 - INFO -   Val F1 (macro): 0.7758
+2025-12-28 08:52:36 - INFO -   Val AUC (macro): 0.0000
+2025-12-28 08:52:36 - INFO -   LR: 0.000032
+2025-12-28 08:52:36 - INFO -   No improvement (patience: 10/10)
+2025-12-28 08:52:36 - INFO - 
+Early stopping at epoch 31
+2025-12-28 08:52:36 - INFO - 
+================================================================================
+2025-12-28 08:52:36 - INFO - TRAINING COMPLETE
+2025-12-28 08:52:36 - INFO - ================================================================================
+2025-12-28 08:52:36 - INFO - Total time: 160.87 minutes
+2025-12-28 08:52:36 - INFO - Best balanced_accuracy: 0.7925 (epoch 21)
+2025-12-28 08:52:36 - INFO - Average time per epoch: 311.36 seconds
+2025-12-28 08:52:36 - INFO - Model saved to: models/swin_fold6_20251228_061141
+2025-12-28 08:52:36 - INFO - 
+Results saved to: models/swin_fold6_20251228_061141/final_results.json

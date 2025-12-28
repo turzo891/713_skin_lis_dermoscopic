@@ -185,14 +185,21 @@ class SkinToneFairnessEvaluator:
             def __getitem__(self, idx):
                 row = self.df.iloc[idx]
 
-                # Get image path
-                image_path = self.data_dir / "MILK10k" / "images" / f"{row['image_id']}.jpg"
+                # Use image_path from metadata if available
+                if 'image_path' in row and pd.notna(row['image_path']):
+                    image_path = self.data_dir / row['image_path']
+                else:
+                    # Fallback: try dermoscopic subfolder first
+                    image_path = self.data_dir / "MILK10k" / "images" / "dermoscopic" / f"{row['image_id']}.jpg"
 
                 # Try alternative paths
+                if not image_path.exists():
+                    image_path = self.data_dir / "MILK10k" / "images" / f"{row['image_id']}.jpg"
                 if not image_path.exists():
                     image_path = self.data_dir / "MILK10k" / f"{row['image_id']}.jpg"
                 if not image_path.exists():
                     # Return placeholder if image not found
+                    print(f"Warning: Image not found: {row['image_id']}")
                     image = Image.new('RGB', (224, 224), (128, 128, 128))
                 else:
                     image = Image.open(image_path).convert('RGB')

@@ -292,3 +292,25 @@ python3 scripts/training/train_optimized.py \
 python3 scripts/monitoring/monitor_resources.py
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Full training (all 3 models, ~41 hours):
+  nohup ./scripts/run_10fold_cv.sh > logs/10fold_training.log 2>&1 &
+
+  Single model (priority order):
+  # Fast first (~5 hours)
+  ./scripts/run_10fold_cv.sh --model resnet50
+
+  # Medium (~9 hours)
+  ./scripts/run_10fold_cv.sh --model densenet
+
+  # Best model (~27 hours)
+  ./scripts/run_10fold_cv.sh --model swin
+
+  Monitor progress:
+  ./scripts/check_cv_progress.sh
+  tail -f logs/10fold_training.log
+
+  Using tmux (recommended for long runs):
+  tmux new -s training
+  ./scripts/run_10fold_cv.sh
+  # Detach: Ctrl+B, then D
+  # Reattach: tmux attach -t training
