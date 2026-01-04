@@ -302,9 +302,9 @@ pip install torch torchvision timm pandas numpy scipy scikit-learn matplotlib se
 ```bibtex
 @software{fairness_skin_cancer_2025,
   title={Fairness-Aware Skin Cancer Classification with Deep Learning},
-  author={[Authors]},
+  author={[Shidhartha Chakrabarty Turzo]},
   year={2025},
-  url={https://github.com/[repository]}
+  url={https://github.com/turzo891/713_skin_lis_dermoscopic}
 }
 ```
 
