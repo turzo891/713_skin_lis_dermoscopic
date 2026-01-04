@@ -120,7 +120,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         log_file = sys.argv[1]
     else:
-        log_file = '/tmp/claude/-home-spoof-adv-pat/tasks/b261336.output'
+        log_file = '/home/spoof/713_skin_lis_dermoscopic/tasks/b261336.output'
 
     print(f"Monitoring training from: {log_file}")
     print("Saving plots to: training_plots/training_progress.png")

@@ -109,7 +109,7 @@ A deep learning framework for **equitable skin cancer diagnosis** that addresses
 ## Project Structure
 
 ```
-adv_pat/
+713_skin_lis_dermoscopic/
 ├── data/
 │   ├── ISIC2019/                    # ISIC 2019 dataset
 │   ├── MILK10k/                     # MILK10k with skin tone labels

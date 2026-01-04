@@ -17,7 +17,7 @@ from tqdm import tqdm
 import timm
 
 # Add project root to path
-sys.path.insert(0, '/home/spoof/adv_pat')
+sys.path.insert(0, '/home/spoof/713_skin_lis_dermoscopic')
 
 class OcclusionSensitivity:
     """Occlusion sensitivity analysis - model agnostic."""
@@ -136,10 +136,10 @@ def generate_xai_visualizations():
     """Main function to generate all XAI visualizations."""
 
     # Paths
-    model_path = '/home/spoof/adv_pat/models/swin_fold5_20251225_040536/best_model.pth'
-    metadata_path = '/home/spoof/adv_pat/data/combined/master_metadata.csv'
-    images_root = '/home/spoof/adv_pat/data/'
-    output_dir = '/home/spoof/adv_pat/results/xai/swin_occlusion'
+    model_path = '/home/spoof/713_skin_lis_dermoscopic/models/swin_fold5_20251225_040536/best_model.pth'
+    metadata_path = '/home/spoof/713_skin_lis_dermoscopic/data/combined/master_metadata.csv'
+    images_root = '/home/spoof/713_skin_lis_dermoscopic/data/'
+    output_dir = '/home/spoof/713_skin_lis_dermoscopic/results/xai/swin_occlusion'
 
     os.makedirs(output_dir, exist_ok=True)
 
